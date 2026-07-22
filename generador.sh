@@ -655,15 +655,25 @@ body {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    transition: all var(--transition-normal);
+    transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
     display: flex;
     flex-direction: column;
+    will-change: transform;
+    contain: layout style;
 }
 
 .book-card:hover {
     transform: translateY(-4px);
     border-color: var(--accent-green);
     box-shadow: var(--shadow-glow-green);
+}
+
+@media (pointer: coarse) {
+    .book-card:hover {
+        transform: none;
+        border-color: var(--border-color);
+        box-shadow: none;
+    }
 }
 
 .book-cover {
