@@ -1,0 +1,38 @@
+[
+    {
+        "id": "gnu-linux",
+        "name": "GNU/Linux",
+        "description": "Sistemas operativos libres basados en el kernel Linux",
+        "icon": "terminal"
+    },
+    {
+        "id": "seguridad",
+        "name": "Seguridad Informática",
+        "description": "Protección de sistemas y redes contra amenazas",
+        "icon": "shield"
+    },
+    {
+        "id": "programacion",
+        "name": "Programación",
+        "description": "Desarrollo de software y lenguajes de programación",
+        "icon": "code"
+    },
+    {
+        "id": "redes",
+        "name": "Redes",
+        "description": "Infraestructura de red y comunicaciones",
+        "icon": "network"
+    },
+    {
+        "id": "bases-datos",
+        "name": "Bases de Datos",
+        "description": "Sistemas de gestión de datos",
+        "icon": "database"
+    },
+    {
+        "id": "devops",
+        "name": "DevOps",
+        "description": "Prácticas de desarrollo y operaciones",
+        "icon": "cloud"
+    }
+]

@@ -1,0 +1,48 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install cwebp
+        run: sudo apt-get update && sudo apt-get install -y webp
+
+      - name: Generate site
+        run: |
+          chmod +x generador.sh
+          ./generador.sh
+
+      - name: Validate output
+        run: |
+          if [ ! -d "public" ]; then
+            echo "::error::public/ directory was not generated"
+            exit 1
+          fi
+          if [ ! -f "public/index.html" ]; then
+            echo "::error::public/index.html was not generated"
+            exit 1
+          fi
+
+      - name: Deploy to public branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: public
+          force_orphan: true

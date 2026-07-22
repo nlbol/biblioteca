@@ -1,0 +1,16 @@
+{
+    "title": "Acerca de",
+    "subtitle": "Biblioteca - Núcleo Linux UAGRM",
+    "description": [
+        "La Biblioteca - Núcleo Linux UAGRM es un proyecto del Núcleo Linux de la Universidad Autónoma Gabriel René Morelos (UAGRM) dedicado a proporcionar recursos educativos gratuitos sobre informática, GNU/Linux y Software Libre.",
+        "Creemos en el poder del Software Libre como herramienta de transformación social y educativa. Todo nuestro contenido está disponible de forma gratuita para estudiantes, profesionales y cualquier persona interesada en aprender."
+    ],
+    "mission": "Promover el conocimiento y la educación en tecnología a través de una biblioteca digital accesible, organizada y completamente gratuita.",
+    "vision": "Ser la biblioteca digital de referencia en Latinoamérica para recursos educativos de Software Libre y tecnologías de la información.",
+    "objectives": [
+        "Proporcionar material educativo de calidad sobre tecnologías de la información",
+        "Hacer que el conocimiento sea accesible para todos, sin restricciones",
+        "Construir una comunidad de estudiantes y profesionales comprometidos con el Software Libre",
+        "Promover el uso de herramientas libres y estándares abiertos"
+    ]
+}

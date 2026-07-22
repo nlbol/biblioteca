@@ -1,0 +1,82 @@
+[
+    {
+        "title": "Manual Practico de Linux Con Ejercicios",
+        "file": "manual-practico-de-linux-con-ejercicios.pdf",
+        "cover": "manual-practico-de-linux-con-ejercicios.png",
+        "pages": 56,
+        "license": "CC-BY-SA",
+        "category": "GNU/Linux",
+        "tags": ["linux", "debian", "terminal"],
+        "year": 2009
+    },
+    {
+        "title": "Debian Hackers Elementals",
+        "file": "debian-hackers-elementals.pdf",
+        "cover": "debian-hackers-elementals.png",
+        "pages": 56,
+        "license": "CC-BY-SA",
+        "category": "Seguridad Informática",
+        "tags": ["seguridad", "hacking", "redes", "debian"],
+        "year": 2014
+    },
+    {
+        "title": "Taller de seguridad inalambrica",
+        "file": "taller-de-seguridad-inalambrica.pdf",
+        "cover": "taller-de-seguridad-inalambrica.png",
+        "pages": 260,
+        "license": "CC-BY-NC-SA",
+        "category": "Seguridad Informática",
+        "tags": ["redes", "seguridad", "hacking"],
+        "year": 2000
+    },
+    {
+        "title": "Wireshark User's Guide",
+        "file": "wireshark-users-guide.pdf",
+        "cover": "wireshark-users-guide.png",
+        "pages": 388,
+        "license": "GPL",
+        "category": "Redes",
+        "tags": ["redes", "tcp-ip", "seguridad"],
+        "year": 2026
+    },
+    {
+        "title": "The Penetration Testing Execution Standard Documentation",
+        "file": "pentest-standard-readthedocs-io-en-latest.pdf",
+        "cover": "the-penetration-testing-execution-standard-documentation.png",
+        "pages": 237,
+        "license": "GPL-3.0",
+        "category": "Seguridad Informática",
+        "tags": ["hacking", "seguridad"],
+        "year": 2022
+    },
+    {
+        "title": "LPI Linux Essentials",
+        "file": "lpi-linux-essentials.pdf",
+        "cover": "lpi-linux-essentials.png",
+        "pages": 448,
+        "license": "CC BY-NC-ND",
+        "category": "GNU/Linux",
+        "tags": ["linux", "terminal"],
+        "year": 2026
+    },
+    {
+        "title": "The Debian Administrator’s Handbook",
+        "file": "debian-handbook.pdf",
+        "cover": "debian-handbook.png",
+        "pages": 542,
+        "license": "CC BY-SA GPL",
+        "category": "GNU/Linux",
+        "tags": ["linux", "terminal", "debian"],
+        "year": 2026
+    },
+    {
+        "title": "Kali Linux Revealed",
+        "file": "kali-linux-revealed.pdf",
+        "cover": "kali-linux-revealed.png",
+        "pages": 346,
+        "license": "CC BY-SA GPL",
+        "category": "Seguridad Informática",
+        "tags": ["linux", "terminal", "debian", "seguridad", "hacking"],
+        "year": 2026
+    }
+]

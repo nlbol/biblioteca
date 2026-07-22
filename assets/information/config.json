@@ -1,0 +1,48 @@
+{
+    "site": {
+        "name": "Biblioteca",
+        "title": "Biblioteca Digital",
+        "subtitle": "Recursos de Inform\u00e1tica, GNU/Linux y Software Libre",
+        "description": "Biblioteca digital del N\u00facleo Linux UAGRM. Libros gratuitos sobre inform\u00e1tica, GNU/Linux, seguridad inform\u00e1tica, programaci\u00f3n y tecnolog\u00eda.",
+        "theme": "dark",
+        "logo": "/img/logo.svg",
+        "domain": "biblioteca.nluagrm.org",
+        "url": "https://biblioteca.nluagrm.org",
+        "github": "https://github.com/nlbol",
+        "email": ""
+    },
+    "sections": {
+        "home": true,
+        "catalog": false,
+        "about": true,
+        "community": true
+    },
+    "colors": {
+        "primary": "#00ff41",
+        "secondary": "#0066cc",
+        "accent": "#00ffff",
+        "background": "#0a0a0a",
+        "surface": "#111111",
+        "text": "#e0e0e0"
+    },
+    "footer": {
+        "copyright": "2026 Biblioteca - N\u00facleo Linux UAGRM"
+    },
+    "buttons": {
+        "primary": "Explorar Cat\u00e1logo",
+        "secondary": "Descargar Gratis"
+    },
+    "externalSite": {
+        "enabled": true,
+        "title": "N\u00facleo Linux UAGRM",
+        "url": "https://nluagrm.org",
+        "newTab": true
+    },
+    "catalog": {
+        "booksPerPage": {
+            "desktop": 8,
+            "tablet": 6,
+            "mobile": 4
+        }
+    }
+}

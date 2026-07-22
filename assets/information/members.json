@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Núcleo Linux UAGRM",
+        "role": "Organización",
+        "description": "Núcleo de estudiantes de la Universidad Autónoma Gabriel René Morelos dedicado alSoftware Libre y GNU/Linux.",
+        "github": "https://github.com/nucleolinux",
+        "email": "nucleolinux@uagrm.edu.bo"
+    },
+    {
+        "name": "Fernando Gonzales",
+        "role": "Coordinador",
+        "description": "Estudiante de Ingeniería de Sistemas. Administrador de la biblioteca digital.",
+        "github": "https://github.com/fernando",
+        "email": "fernando@uagrm.edu.bo"
+    },
+    {
+        "name": "María García",
+        "role": "Colaboradora",
+        "description": "Estudiante de Informática. Colaboradora en la organización de libros.",
+        "github": "https://github.com/maria",
+        "email": "maria@uagrm.edu.bo"
+    }
+]
