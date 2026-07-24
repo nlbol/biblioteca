@@ -2186,7 +2186,6 @@ function pdfOnScroll() {
         pdfScrollTick = false;
         pdfTrackCurrentPage();
         pdfRenderVisiblePages();
-        pdfUnrenderDistantPages();
     });
 }
 
