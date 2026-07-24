@@ -429,12 +429,15 @@ body {
 /* Header */
 .header {
     background: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
     backdrop-filter: var(--glass-blur);
     border-bottom: 1px solid var(--glass-border);
     padding: var(--spacing-md) var(--spacing-xl);
+    padding-top: calc(var(--spacing-md) + env(safe-area-inset-top, 0px));
     position: sticky;
     top: 0;
     z-index: 1000;
+    will-change: transform;
 }
 
 .header-content {
@@ -514,7 +517,8 @@ body {
     border-radius: var(--radius-md);
     cursor: pointer;
     z-index: 2002;
-    transition: all var(--transition-fast);
+    transition: border-color var(--transition-fast);
+    flex-shrink: 0;
 }
 
 .menu-toggle:hover {
@@ -529,6 +533,7 @@ body {
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
+    display: block;
 }
 
 /* Nav overlay */
@@ -659,7 +664,7 @@ body {
     display: flex;
     flex-direction: column;
     will-change: transform;
-    contain: layout style;
+    contain: paint;
 }
 
 .book-card:hover {
@@ -788,7 +793,9 @@ body {
     }
     
     .menu-toggle.active svg line:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(45deg);
+        transform-box: fill-box;
+        transform-origin: center;
     }
     
     .menu-toggle.active svg line:nth-child(2) {
@@ -796,7 +803,9 @@ body {
     }
     
     .menu-toggle.active svg line:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+        transform: rotate(-45deg);
+        transform-box: fill-box;
+        transform-origin: center;
     }
     
     .nav {
@@ -2431,7 +2440,7 @@ print(cat.get('mobile', 4))
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="${site_description}">
     <meta name="domain" content="${site_url}">
     <link rel="canonical" href="${site_url}/">
@@ -2784,7 +2793,7 @@ for obj in objectives:
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="${about_subtitle}">
     <link rel="canonical" href="${site_url}/about.html">
     <title>${about_title} | ${site_name}</title>
