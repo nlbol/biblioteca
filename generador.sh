@@ -414,7 +414,6 @@ ${theme_vars}
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 body {
@@ -423,7 +422,7 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     min-height: 100vh;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 /* Header */
@@ -437,7 +436,8 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
-    will-change: transform;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .header-content {
@@ -788,6 +788,13 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    
     .menu-toggle {
         display: flex;
     }
@@ -1574,11 +1581,24 @@ document.addEventListener('DOMContentLoaded', () => {
     applyFilters();
     setupSearch();
     setupMenu();
+    syncHeaderOffset();
+    let resizeTimer;
     window.addEventListener('resize', () => {
-        currentPage = 1;
-        renderPage();
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            syncHeaderOffset();
+            renderPage(false);
+        }, 200);
     });
 });
+
+function syncHeaderOffset() {
+    const header = document.querySelector('.header');
+    const main = document.querySelector('.container');
+    if (header && main) {
+        main.style.paddingTop = header.offsetHeight + 'px';
+    }
+}
 
 // Menú móvil
 function setupMenu() {
@@ -1745,7 +1765,7 @@ function closeFilters() {
 }
 
 // Renderizar página actual
-function renderPage() {
+function renderPage(animate) {
     const container = document.getElementById('books-container');
     if (!container) return;
     
@@ -1756,9 +1776,7 @@ function renderPage() {
     
     const start = (currentPage - 1) * perPage;
     
-    container.style.opacity = '0';
-    
-    setTimeout(() => {
+    const doRender = () => {
         allCards.forEach(card => card.style.display = 'none');
         
         if (filteredCards.length === 0) {
@@ -1781,10 +1799,21 @@ function renderPage() {
         
         renderPagination(totalPages);
         
-        requestAnimationFrame(() => {
+        if (animate !== false) {
+            requestAnimationFrame(() => {
+                container.style.opacity = '1';
+            });
+        } else {
             container.style.opacity = '1';
-        });
-    }, 150);
+        }
+    };
+    
+    if (animate !== false) {
+        container.style.opacity = '0';
+        setTimeout(doRender, 150);
+    } else {
+        doRender();
+    }
 }
 
 // Renderizar controles de paginación
@@ -1851,7 +1880,6 @@ let pdfDoc = null;
 let pdfCurrentPage = 1;
 let pdfScale = 1;
 let pdfBaseScale = 1;
-let pdfRendering = false;
 let pdfHammer = null;
 let pdfTouchActive = false;
 let pdfPinchStartScale = 1;
@@ -2093,28 +2121,6 @@ function pdfRerenderVisiblePages() {
     });
 }
 
-function pdfUnrenderDistantPages() {
-    if (!pdfScrollEl || !pdfContainer) return;
-    
-    var scrollTop = pdfScrollEl.scrollTop;
-    var viewHeight = pdfScrollEl.clientHeight;
-    var keepBuffer = 1200;
-    
-    var wrappers = pdfContainer.querySelectorAll('.pdf-page-wrapper');
-    wrappers.forEach(function(wrapper) {
-        var top = wrapper.offsetTop;
-        var bottom = top + wrapper.offsetHeight;
-        var num = parseInt(wrapper.getAttribute('data-page'));
-        
-        if (bottom < scrollTop - keepBuffer || top > scrollTop + viewHeight + keepBuffer) {
-            if (pdfRenderedPages[num] && wrapper.querySelector('canvas')) {
-                wrapper.innerHTML = '';
-                pdfRenderedPages[num] = false;
-            }
-        }
-    });
-}
-
 function initPdfGestures() {
     if (pdfHammer) {
         pdfHammer.destroy();
@@ -2340,7 +2346,6 @@ function closePdfViewer() {
     pdfCurrentPage = 1;
     pdfScale = 1;
     pdfBaseScale = 1;
-    pdfRendering = false;
     pdfContainer = null;
     pdfScrollEl = null;
     pdfPageDims = [];
@@ -2377,27 +2382,13 @@ generate_index() {
     
     # Leer configuración del catálogo
     local CATALOG_DESKTOP CATALOG_TABLET CATALOG_MOBILE
-    CATALOG_DESKTOP=$(python3 -c "
+    read -r CATALOG_DESKTOP CATALOG_TABLET CATALOG_MOBILE <<< "$(python3 -c "
 import json
 with open('${CONFIG_JSON}', 'r') as f:
     config = json.load(f)
 cat = config.get('catalog', {}).get('booksPerPage', {})
-print(cat.get('desktop', 8))
-")
-    CATALOG_TABLET=$(python3 -c "
-import json
-with open('${CONFIG_JSON}', 'r') as f:
-    config = json.load(f)
-cat = config.get('catalog', {}).get('booksPerPage', {})
-print(cat.get('tablet', 6))
-")
-    CATALOG_MOBILE=$(python3 -c "
-import json
-with open('${CONFIG_JSON}', 'r') as f:
-    config = json.load(f)
-cat = config.get('catalog', {}).get('booksPerPage', {})
-print(cat.get('mobile', 4))
-")
+print(cat.get('desktop', 8), cat.get('tablet', 6), cat.get('mobile', 4))
+")"
     
     # Construir navegación según secciones habilitadas
     local nav_items=""
