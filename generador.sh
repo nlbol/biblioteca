@@ -53,6 +53,9 @@ VERBOSE=false
 CNAME_DOMAIN="biblioteca.nluagrm.org"
 DEV_MODE=false
 
+# Cache busting hash
+BUILD_HASH=$(date +%s)
+
 #===============================================================================
 # COLORES - Para mensajes en terminal
 #===============================================================================
@@ -2439,7 +2442,7 @@ print(cat.get('desktop', 8), cat.get('tablet', 6), cat.get('mobile', 4))
     <meta property="og:url" content="${site_url}/">
     <meta property="og:type" content="website">
     <title>${site_name} | ${site_title}</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css?v=${BUILD_HASH}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -2582,13 +2585,13 @@ $([ -n "$site_email" ] && echo "                <p>${site_email}</p>")
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" data-cfasync="false"></script>
     <script>
         if (typeof pdfjsLib !== 'undefined') {
             pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
         }
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" data-cfasync="false"></script>
     <script>
         window.CATALOG_CONFIG = {
             booksPerPage: {
@@ -2598,7 +2601,7 @@ $([ -n "$site_email" ] && echo "                <p>${site_email}</p>")
             }
         };
     </script>
-    <script src="/js/app.js"></script>
+    <script src="/js/app.js?v=${BUILD_HASH}" data-cfasync="false"></script>
 </body>
 </html>
 EOF
@@ -2787,7 +2790,7 @@ for obj in objectives:
     <meta name="description" content="${about_subtitle}">
     <link rel="canonical" href="${site_url}/about.html">
     <title>${about_title} | ${site_name}</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css?v=${BUILD_HASH}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -2863,7 +2866,7 @@ $([ -n "$site_email" ] && echo "                <p>${site_email}</p>")
         </div>
     </footer>
 
-    <script src="/js/app.js"></script>
+    <script src="/js/app.js?v=${BUILD_HASH}" data-cfasync="false"></script>
 </body>
 </html>
 EOF
@@ -3000,6 +3003,9 @@ main() {
         echo -n "${CNAME_DOMAIN}" > "${PUBLIC_DIR}/CNAME"
         log_info "CNAME generado: ${CNAME_DOMAIN}"
     fi
+    
+    # Generar .nojekyll para GitHub Pages
+    touch "${PUBLIC_DIR}/.nojekyll"
     
     echo ""
     echo "========================================"
