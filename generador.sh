@@ -2534,7 +2534,7 @@ $([ -n "$site_email" ] && echo "                <p>${site_email}</p>")
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; ${footer_copyright}. Todos los derechos reservados.</p>
+            <p>&copy; ${footer_copyright}.</p>
         </div>
     </footer>
 
