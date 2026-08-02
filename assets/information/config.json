@@ -15,6 +15,7 @@
         "home": true,
         "catalog": false,
         "about": true,
+        "contributing": true,
         "community": true
     },
     "colors": {
