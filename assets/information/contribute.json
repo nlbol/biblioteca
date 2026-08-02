@@ -44,15 +44,15 @@
             "blocks": [
                 {
                     "type": "paragraph",
-                    "text": "Entra al repositorio oficial de la biblioteca y pulsa el botón **Fork** en la esquina superior derecha. Esto crea una copia del proyecto bajo tu cuenta de GitHub que podrás modificar libremente."
+                    "text": "Entra al repositorio oficial de la biblioteca y pulsa el botón **Fork** en la esquina superior derecha. Esto crea una copia del proyecto en tu cuenta de GitHub que podrás modificar libremente. Necesitas una cuenta de GitHub (es gratuita)."
                 },
                 {
-                    "type": "list",
-                    "items": [
-                        "Necesitas una cuenta de GitHub (es gratuita).",
-                        "El fork debe crearse desde el repositorio oficial en la rama `main`.",
-                        "Los cambios se envían mediante un Pull Request hacia la rama `development`."
-                    ]
+                    "type": "paragraph",
+                    "text": "Durante la creación del Fork, asegúrate de copiar todas las ramas del repositorio y no únicamente la rama predeterminada. Si GitHub te muestra la opción que limita la copia a una sola rama, desmárcala."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "El objetivo es que tu Fork también contenga la rama `development`, ya que será la rama que utilizarás durante toda la contribución."
                 }
             ]
         },
@@ -61,7 +61,7 @@
             "blocks": [
                 {
                     "type": "paragraph",
-                    "text": "Clona tu fork en tu máquina local y entra al directorio del proyecto. Reemplaza `TU_USUARIO` con el nombre de tu cuenta de GitHub."
+                    "text": "Clona tu Fork en tu máquina local usando directamente la rama `development` y entra al directorio del proyecto. Reemplaza `TU_USUARIO` con el nombre de tu cuenta de GitHub. A partir de esa rama crearás tu propia rama de trabajo."
                 },
                 {
                     "type": "terminal",
@@ -80,7 +80,7 @@
             "blocks": [
                 {
                     "type": "paragraph",
-                    "text": "Antes de empezar a trabajar, crea una rama con un nombre descriptivo para tus cambios. Todos los cambios deben realizarse en esa rama y nunca directamente sobre `development`."
+                    "text": "Desde la rama `development`, crea tu propia rama de trabajo con un nombre corto y descriptivo, por ejemplo `libros`. Todas las modificaciones deben realizarse únicamente sobre esta rama y nunca directamente sobre `development`."
                 },
                 {
                     "type": "terminal",
@@ -210,7 +210,7 @@
             "blocks": [
                 {
                     "type": "paragraph",
-                    "text": "Sube tu rama `libros` a tu fork y luego abre un Pull Request hacia la rama `development` del repositorio oficial."
+                    "text": "Sube tu rama `libros` a tu Fork. El push envía los cambios exactamente a la rama `libros` que creaste antes, que será la base del Pull Request."
                 },
                 {
                     "type": "terminal",
@@ -221,7 +221,11 @@
                 },
                 {
                     "type": "paragraph",
-                    "text": "En GitHub, abre tu repositorio y verás el botón **Compare & pull request**. Asegúrate de que el Pull Request se abra desde tu rama `libros` hacia la rama `development` del repositorio oficial. Describe el libro que agregas y envía la solicitud. El equipo la revisará y, una vez aprobada, la biblioteca se actualizará automáticamente."
+                    "text": "En GitHub, abre tu repositorio y verás el botón **Compare & pull request**. Asegúrate de que el Pull Request se abra desde la rama `libros` de tu Fork hacia la rama `development` del repositorio oficial. Describe el libro que agregas y envía la solicitud. El equipo la revisará y, una vez aprobada, la biblioteca se actualizará automáticamente."
+                },
+                {
+                    "type": "info",
+                    "text": "La rama `development` recibe actualizaciones una vez por semana, normalmente los domingos por la noche. Si tu Pull Request presenta conflictos, sincroniza primero tu Fork con la versión más reciente de `development` antes de continuar."
                 }
             ]
         }
