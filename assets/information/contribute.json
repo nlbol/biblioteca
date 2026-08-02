@@ -1,0 +1,233 @@
+{
+    "title": "Contribuir",
+    "subtitle": "Agrega libros a la biblioteca con Git y GitHub",
+    "description": [
+        "La biblioteca es un proyecto abierto: cualquier persona puede aportar libros. Todo el contenido vive en un repositorio de GitHub y se publica automáticamente con cada cambio aceptado.",
+        "Antes de comenzar, revisa las licencias aceptadas. Luego sigue la guía paso a paso para enviar tu primer libro usando el flujo profesional de contribución: Fork, rama de trabajo, Pull Request y revisión."
+    ],
+    "notice": [
+        {
+            "type": "info",
+            "text": "**Importante: licencias aceptadas.** Únicamente se aceptarán libros cuya licencia permita su distribución legal. Se recomienda contribuir únicamente con obras bajo licencias libres o abiertas, por ejemplo:"
+        },
+        {
+            "type": "grid",
+            "items": [
+                "Creative Commons",
+                "GPL",
+                "LGPL",
+                "FDL",
+                "MIT",
+                "BSD",
+                "Apache 2.0",
+                "MPL",
+                "Dominio Público"
+            ]
+        },
+        {
+            "type": "paragraph",
+            "text": "Existen muchas otras licencias compatibles. Antes de contribuir, verifica siempre que la licencia permita la redistribución legal del contenido."
+        },
+        {
+            "type": "list",
+            "items": [
+                "No envíes libros protegidos por copyright sin autorización.",
+                "El colaborador es responsable de verificar la licencia antes de realizar la contribución.",
+                "Si existe alguna duda sobre la licencia, es preferible no enviar el material hasta confirmar que su distribución está permitida."
+            ]
+        }
+    ],
+    "steps_title": "Guía de contribución",
+    "steps": [
+        {
+            "title": "Crea un Fork",
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "text": "Entra al repositorio oficial de la biblioteca y pulsa el botón **Fork** en la esquina superior derecha. Esto crea una copia del proyecto bajo tu cuenta de GitHub que podrás modificar libremente."
+                },
+                {
+                    "type": "list",
+                    "items": [
+                        "Necesitas una cuenta de GitHub (es gratuita).",
+                        "El fork debe crearse desde el repositorio oficial en la rama `main`.",
+                        "Los cambios se envían mediante un Pull Request hacia la rama `development`."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Clona el repositorio",
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "text": "Clona tu fork en tu máquina local y entra al directorio del proyecto. Reemplaza `TU_USUARIO` con el nombre de tu cuenta de GitHub."
+                },
+                {
+                    "type": "terminal",
+                    "title": "terminal",
+                    "lines": [
+                        { "type": "command", "text": "git clone -b development git@github.com:TU_USUARIO/biblioteca.git" },
+                        { "type": "command", "text": "cd biblioteca" },
+                        { "type": "comment", "text": "# Si no tienes SSH configurado, usa HTTPS:" },
+                        { "type": "comment", "text": "# git clone -b development https://github.com/TU_USUARIO/biblioteca.git" }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Crea una rama de trabajo",
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "text": "Antes de empezar a trabajar, crea una rama con un nombre descriptivo para tus cambios. Todos los cambios deben realizarse en esa rama y nunca directamente sobre `development`."
+                },
+                {
+                    "type": "terminal",
+                    "title": "terminal",
+                    "lines": [
+                        { "type": "command", "text": "git checkout -b libros" },
+                        { "type": "comment", "text": "# Crea y cambia a una rama nueva para tu contribución" }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Agrega los archivos del libro",
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "text": "Copia los archivos del libro en los recursos del proyecto: el PDF en `assets/pdf/` y la portada en `assets/img/covers/`."
+                },
+                {
+                    "type": "terminal",
+                    "title": "estructura",
+                    "lines": [
+                        { "type": "plain", "text": "assets/" },
+                        { "type": "plain", "text": "├── img/covers/   ← copia aquí la portada (png, jpg o webp)" },
+                        { "type": "plain", "text": "└── pdf/          ← copia aquí el libro (.pdf)" }
+                    ]
+                },
+                {
+                    "type": "list",
+                    "items": [
+                        "El nombre del PDF debe ser descriptivo, en minúsculas y con guiones, sin espacios ni acentos.",
+                        "La portada se convierte automáticamente a webp al generar el sitio."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Registrar el libro",
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "text": "El archivo que debes editar es `assets/information/books.json`. Ese archivo contiene el catálogo de libros de la biblioteca y es **obligatorio** registrar allí el nuevo libro para que el generador pueda incluirlo en el sitio."
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Agrega un nuevo registro al final de la lista (recuerda la coma entre entradas), siguiendo exactamente el formato existente:"
+                },
+                {
+                    "type": "json",
+                    "value": {
+                        "title": "Título del Libro",
+                        "file": "titulo-del-libro.pdf",
+                        "cover": "titulo-del-libro.png",
+                        "pages": 120,
+                        "license": "CC-BY-SA",
+                        "category": "GNU/Linux",
+                        "tags": ["linux", "terminal"],
+                        "year": 2026
+                    }
+                },
+                {
+                    "type": "paragraph",
+                    "text": "Cada campo tiene un significado:"
+                },
+                {
+                    "type": "list",
+                    "items": [
+                        "`title`: título del libro tal como aparecerá en el sitio.",
+                        "`file`: nombre exacto del PDF que colocaste en `assets/pdf/`.",
+                        "`cover`: nombre de la portada en `assets/img/covers/`.",
+                        "`pages`: número de páginas del libro.",
+                        "`license`: licencia bajo la que se distribuye.",
+                        "`category`: categoría del libro.",
+                        "`tags`: etiquetas descriptivas para facilitar la búsqueda.",
+                        "`year`: año de publicación."
+                    ]
+                },
+                {
+                    "type": "list",
+                    "items": [
+                        "Verifica que el PDF se abra correctamente antes de publicarlo.",
+                        "Usa una categoría existente o agrega una coherente con el contenido."
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Genera el sitio",
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "text": "Ejecuta el generador para comprobar que todo funciona. La salida se escribe en la carpeta `public/`, que no debe editarse a mano."
+                },
+                {
+                    "type": "terminal",
+                    "title": "terminal",
+                    "lines": [
+                        { "type": "command", "text": "./generador.sh" },
+                        { "type": "comment", "text": "# Genera la carpeta public/ con el sitio completo" }
+                    ]
+                },
+                {
+                    "type": "info",
+                    "text": "Abre `public/index.html` en tu navegador para verificar que tu libro aparece con su portada, categoría y etiquetas correctas."
+                }
+            ]
+        },
+        {
+            "title": "Haz commit de los cambios",
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "text": "Registra los archivos agregados con un mensaje descriptivo que mencione el título del libro."
+                },
+                {
+                    "type": "terminal",
+                    "title": "terminal",
+                    "lines": [
+                        { "type": "command", "text": "git add ." },
+                        { "type": "command", "text": "git commit -m \"Agregar libro: Título del Libro\"" }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Envía tu contribución",
+            "blocks": [
+                {
+                    "type": "paragraph",
+                    "text": "Sube tu rama `libros` a tu fork y luego abre un Pull Request hacia la rama `development` del repositorio oficial."
+                },
+                {
+                    "type": "terminal",
+                    "title": "terminal",
+                    "lines": [
+                        { "type": "command", "text": "git push -u origin libros" }
+                    ]
+                },
+                {
+                    "type": "paragraph",
+                    "text": "En GitHub, abre tu repositorio y verás el botón **Compare & pull request**. Asegúrate de que el Pull Request se abra desde tu rama `libros` hacia la rama `development` del repositorio oficial. Describe el libro que agregas y envía la solicitud. El equipo la revisará y, una vez aprobada, la biblioteca se actualizará automáticamente."
+                }
+            ]
+        }
+    ],
+    "closing": {
+        "type": "info",
+        "text": "¡Gracias por contribuir al conocimiento libre! Si tienes dudas, revisa el repositorio oficial [en GitHub]({{github}})."
+    }
+}

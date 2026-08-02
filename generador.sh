@@ -38,6 +38,7 @@ MEMBERS_JSON="${ASSETS_DIR}/information/members.json"
 CATEGORIES_JSON="${ASSETS_DIR}/information/categories.json"
 TAGS_JSON="${ASSETS_DIR}/information/tags.json"
 ABOUT_JSON="${ASSETS_DIR}/information/about.json"
+CONTRIBUTE_JSON="${ASSETS_DIR}/information/contribute.json"
 THEMES_JSON="${ASSETS_DIR}/information/themes.json"
 
 # Imágenes
@@ -176,7 +177,7 @@ check_webp_support() {
 check_required_files() {
     log_info "Verificando archivos requeridos..."
     
-    local files=("$BOOKS_JSON" "$CONFIG_JSON" "$MEMBERS_JSON" "$CATEGORIES_JSON" "$TAGS_JSON" "$ABOUT_JSON" "$THEMES_JSON")
+    local files=("$BOOKS_JSON" "$CONFIG_JSON" "$MEMBERS_JSON" "$CATEGORIES_JSON" "$TAGS_JSON" "$ABOUT_JSON" "$CONTRIBUTE_JSON" "$THEMES_JSON")
     local missing=()
     
     for file in "${files[@]}"; do
@@ -969,18 +970,6 @@ body {
     }
 }
 
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
 /* Focus visible */
 :focus-visible {
     outline: 2px solid var(--accent-green);
@@ -1046,6 +1035,264 @@ body {
     left: 0;
     color: var(--accent-green);
     font-family: var(--font-mono);
+}
+
+/* Contribuir */
+.contrib-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contrib-intro {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.step-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.step-card h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    color: var(--accent-green);
+}
+
+.step-card h2 .step-num {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    color: var(--text-muted);
+    margin-right: var(--spacing-sm);
+}
+
+.step-card p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+}
+
+.step-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--spacing-md);
+}
+
+.step-card li {
+    padding: var(--spacing-sm) 0;
+    padding-left: var(--spacing-lg);
+    position: relative;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.step-card li::before {
+    content: ">";
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+    font-family: var(--font-mono);
+}
+
+.step-card code {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 2px 6px;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--accent-green);
+}
+
+.terminal {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin: var(--spacing-md) 0 var(--spacing-lg);
+}
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.terminal-dot.red { background: #ff5f57; }
+.terminal-dot.yellow { background: #febc2e; }
+.terminal-dot.green { background: #28c840; }
+
+.terminal-title {
+    margin-left: var(--spacing-sm);
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+}
+
+.terminal-body {
+    padding: var(--spacing-md) var(--spacing-lg);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+}
+
+.terminal-body p {
+    margin: 0 0 var(--spacing-xs);
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.terminal-body p:last-child {
+    margin-bottom: 0;
+}
+
+.terminal-body .prompt {
+    color: var(--accent-green);
+}
+
+.terminal-body .cmd {
+    color: var(--text-primary);
+}
+
+.terminal-body .comment {
+    color: var(--text-muted);
+}
+
+.json-block {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    margin: var(--spacing-md) 0 var(--spacing-lg);
+}
+
+.json-block .key {
+    color: var(--accent-cyan);
+}
+
+.json-block .str {
+    color: var(--accent-green);
+}
+
+.json-block .num {
+    color: var(--accent-purple);
+}
+
+.info-box {
+    display: flex;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    border-left: 3px solid var(--accent-green);
+    border-radius: var(--radius-md);
+    background: rgba(0, 255, 65, 0.05);
+    margin: var(--spacing-md) 0 var(--spacing-lg);
+}
+
+.info-box p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.info-box .info-icon {
+    color: var(--accent-green);
+    font-family: var(--font-mono);
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.license-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-sm);
+    margin: var(--spacing-md) 0 var(--spacing-lg);
+}
+
+.license-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+.steps-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin: var(--spacing-2xl) 0 var(--spacing-xl);
+}
+
+.steps-divider::before,
+.steps-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.steps-divider span {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--accent-green);
+    white-space: nowrap;
+}
+
+.contrib-content a {
+    color: var(--accent-green);
+    text-decoration: underline;
+    text-decoration-color: var(--border-hover);
+    text-underline-offset: 3px;
+    transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+.contrib-content a:hover {
+    color: var(--accent-green);
+    text-decoration-color: var(--accent-green);
+}
+
+@media (max-width: 600px) {
+    .step-card {
+        padding: var(--spacing-lg);
+    }
+    .terminal-body,
+    .json-block {
+        font-size: 0.75rem;
+    }
+    .license-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .license-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Filtros */
@@ -1246,10 +1493,6 @@ body {
     .page-btn {
         padding: 6px 10px;
         font-size: 0.8rem;
-    }
-    
-    .page-btn span.page-label {
-        display: none;
     }
 }
 
@@ -2404,6 +2647,9 @@ print(cat.get('desktop', 8), cat.get('tablet', 6), cat.get('mobile', 4))
     if is_section_enabled "about"; then
         nav_items="${nav_items}                <a href=\"/about.html\">Acerca de</a>\n"
     fi
+    if is_section_enabled "contributing"; then
+        nav_items="${nav_items}                <a href=\"/contribuir.html\">Contribuir</a>\n"
+    fi
     if is_external_site_enabled; then
         local ext_url ext_title ext_newtab
         ext_url=$(read_external_site "url")
@@ -2426,6 +2672,9 @@ print(cat.get('desktop', 8), cat.get('tablet', 6), cat.get('mobile', 4))
     fi
     if is_section_enabled "about"; then
         footer_links="${footer_links}                <a href=\"/about.html\">Acerca de</a><br>\n"
+    fi
+    if is_section_enabled "contributing"; then
+        footer_links="${footer_links}                <a href=\"/contribuir.html\">Contribuir</a><br>\n"
     fi
     
     cat > "${PUBLIC_DIR}/index.html" << EOF
@@ -2757,6 +3006,9 @@ for obj in objectives:
     if is_section_enabled "about"; then
         nav_items="${nav_items}                <a href=\"/about.html\">Acerca de</a>\n"
     fi
+    if is_section_enabled "contributing"; then
+        nav_items="${nav_items}                <a href=\"/contribuir.html\">Contribuir</a>\n"
+    fi
     if is_external_site_enabled; then
         local ext_url ext_title ext_newtab
         ext_url=$(read_external_site "url")
@@ -2779,6 +3031,9 @@ for obj in objectives:
     fi
     if is_section_enabled "about"; then
         footer_links="${footer_links}                <a href=\"/about.html\">Acerca de</a><br>\n"
+    fi
+    if is_section_enabled "contributing"; then
+        footer_links="${footer_links}                <a href=\"/contribuir.html\">Contribuir</a><br>\n"
     fi
     
     cat > "${PUBLIC_DIR}/about.html" << EOF
@@ -2874,6 +3129,299 @@ EOF
     log_success "Página Acerca de generada"
 }
 
+# Generar página Contribuir
+generate_contributing() {
+    log_info "Generando página Contribuir..."
+    
+    local site_name
+    site_name=$(read_config "site.name")
+    local site_url
+    site_url=$(read_config "site.url")
+    local site_github
+    site_github=$(read_config "site.github")
+    local site_email
+    site_email=$(read_config "site.email")
+    local footer_copyright
+    footer_copyright=$(read_config "footer.copyright")
+    
+    # Construir navegación
+    local nav_items=""
+    if is_section_enabled "home"; then
+        nav_items="${nav_items}                <a href=\"/\">Inicio</a>\n"
+    fi
+    if is_section_enabled "catalog"; then
+        nav_items="${nav_items}                <a href=\"/catalog.html\">Catálogo</a>\n"
+    fi
+    if is_section_enabled "about"; then
+        nav_items="${nav_items}                <a href=\"/about.html\">Acerca de</a>\n"
+    fi
+    if is_section_enabled "contributing"; then
+        nav_items="${nav_items}                <a href=\"/contribuir.html\">Contribuir</a>\n"
+    fi
+    if is_external_site_enabled; then
+        local ext_url ext_title ext_newtab
+        ext_url=$(read_external_site "url")
+        ext_title=$(read_external_site "title")
+        ext_newtab=$(read_external_site "newTab")
+        if [ "$ext_newtab" = "true" ]; then
+            nav_items="${nav_items}                <a href=\"${ext_url}\" target=\"_blank\" class=\"btn-nav-external\">${ext_title}</a>\n"
+        else
+            nav_items="${nav_items}                <a href=\"${ext_url}\" class=\"btn-nav-external\">${ext_title}</a>\n"
+        fi
+    fi
+    
+    # Construir enlaces del footer
+    local footer_links=""
+    if is_section_enabled "home"; then
+        footer_links="${footer_links}                <a href=\"/\">Inicio</a><br>\n"
+    fi
+    if is_section_enabled "catalog"; then
+        footer_links="${footer_links}                <a href=\"/catalog.html\">Catálogo</a><br>\n"
+    fi
+    if is_section_enabled "about"; then
+        footer_links="${footer_links}                <a href=\"/about.html\">Acerca de</a><br>\n"
+    fi
+    if is_section_enabled "contributing"; then
+        footer_links="${footer_links}                <a href=\"/contribuir.html\">Contribuir</a><br>\n"
+    fi
+    
+    # Leer título y subtítulo desde contribute.json
+    local contrib_title
+    contrib_title=$(python3 -c "
+import json
+with open('${CONTRIBUTE_JSON}', 'r') as f:
+    data = json.load(f)
+print(data.get('title', 'Contribuir'))
+")
+    local contrib_subtitle
+    contrib_subtitle=$(python3 -c "
+import json
+with open('${CONTRIBUTE_JSON}', 'r') as f:
+    data = json.load(f)
+print(data.get('subtitle', ''))
+")
+    
+    # Renderizar contenido desde contribute.json
+    local contrib_content
+    contrib_content=$(python3 - "${CONTRIBUTE_JSON}" "${CONFIG_JSON}" <<'PYEOF'
+import json
+import re
+import sys
+import html
+
+json_path = sys.argv[1]
+config_path = sys.argv[2]
+
+with open(json_path, 'r', encoding='utf-8') as f:
+    data = json.load(f)
+
+with open(config_path, 'r', encoding='utf-8') as f:
+    config = json.load(f)
+site = config.get('site', {})
+tokens = {
+    '{{github}}': site.get('github', ''),
+    '{{email}}': site.get('email', ''),
+    '{{name}}': site.get('name', ''),
+}
+
+def replace_tokens(text):
+    for key, value in tokens.items():
+        text = text.replace(key, value)
+    return text
+
+def inline(text):
+    text = replace_tokens(text)
+    text = html.escape(text, quote=False)
+    text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
+    text = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', text)
+    text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank" rel="noopener">\1</a>', text)
+    return text
+
+def highlight_json_value(value):
+    out = []
+    pos = 0
+    pattern = re.compile(r'("[^"]*"|\d+|[\[\],\{\}])')
+    for match in pattern.finditer(value):
+        pre = value[pos:match.start()]
+        if pre:
+            out.append(html.escape(pre))
+        token = match.group(1)
+        if token.startswith('"'):
+            out.append('<span class="str">' + html.escape(token) + '</span>')
+        elif token.isdigit():
+            out.append('<span class="num">' + token + '</span>')
+        else:
+            out.append(html.escape(token))
+        pos = match.end()
+    if pos < len(value):
+        out.append(html.escape(value[pos:]))
+    return ''.join(out)
+
+def render_terminal(block):
+    out = ['<div class="terminal">']
+    out.append('    <div class="terminal-header">')
+    out.append('        <span class="terminal-dot red"></span>')
+    out.append('        <span class="terminal-dot yellow"></span>')
+    out.append('        <span class="terminal-dot green"></span>')
+    out.append('        <span class="terminal-title">' + html.escape(replace_tokens(block.get('title', 'terminal'))) + '</span>')
+    out.append('    </div>')
+    out.append('    <div class="terminal-body">')
+    for line in block.get('lines', []):
+        text = html.escape(replace_tokens(line.get('text', '')), quote=False)
+        line_type = line.get('type', 'plain')
+        if line_type == 'command':
+            out.append('        <p><span class="prompt">$</span> <span class="cmd">' + text + '</span></p>')
+        elif line_type == 'comment':
+            out.append('        <p class="comment">' + text + '</p>')
+        else:
+            out.append('        <p>' + text + '</p>')
+    out.append('    </div>')
+    out.append('</div>')
+    return '\n'.join(out)
+
+def render_json(block):
+    value = json.dumps(block.get('value', {}), ensure_ascii=False, indent=4)
+    out = ['<div class="json-block">']
+    for line in value.split('\n'):
+        match = re.match(r'^(\s*)"([^"]+)":(.*)$', line)
+        if match:
+            indent, key, rest = match.group(1), match.group(2), match.group(3)
+            out.append('    <p>' + indent + '<span class="key">"' + key + '"</span>:' + highlight_json_value(rest) + '</p>')
+        else:
+            out.append('    <p>' + highlight_json_value(line) + '</p>')
+    out.append('</div>')
+    return '\n'.join(out)
+
+def render_block(block):
+    block_type = block.get('type', 'paragraph')
+    if block_type == 'paragraph':
+        return '        <p>' + inline(block.get('text', '')) + '</p>'
+    if block_type == 'list':
+        out = ['        <ul>']
+        for item in block.get('items', []):
+            out.append('            <li>' + inline(item) + '</li>')
+        out.append('        </ul>')
+        return '\n'.join(out)
+    if block_type == 'grid':
+        out = ['        <div class="license-grid">']
+        for item in block.get('items', []):
+            out.append('            <span class="license-item">' + inline(item) + '</span>')
+        out.append('        </div>')
+        return '\n'.join(out)
+    if block_type == 'info':
+        return ('        <div class="info-box">\n'
+                '            <span class="info-icon">i</span>\n'
+                '            <p>' + inline(block.get('text', '')) + '</p>\n'
+                '        </div>')
+    if block_type == 'terminal':
+        return render_terminal(block)
+    if block_type == 'json':
+        return render_json(block)
+    return ''
+
+out = []
+for paragraph in data.get('description', []):
+    out.append('        <p class="contrib-intro">' + inline(paragraph) + '</p>')
+
+for block in data.get('notice', []):
+    out.append(render_block(block))
+
+steps_title = data.get('steps_title', '')
+if steps_title:
+    out.append('        <div class="steps-divider">')
+    out.append('            <span>' + html.escape(replace_tokens(steps_title)) + '</span>')
+    out.append('        </div>')
+
+for index, step in enumerate(data.get('steps', []), start=1):
+    out.append('        <div class="step-card">')
+    out.append('            <h2><span class="step-num">' + str(index).zfill(2) + '</span>' + html.escape(replace_tokens(step.get('title', ''))) + '</h2>')
+    for block in step.get('blocks', []):
+        out.append(render_block(block))
+    out.append('        </div>')
+
+closing = data.get('closing')
+if closing:
+    out.append(render_block(closing))
+
+print('\n'.join(out))
+PYEOF
+)
+    
+    cat > "${PUBLIC_DIR}/contribuir.html" << EOF
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="${contrib_subtitle}">
+    <link rel="canonical" href="${site_url}/contribuir.html">
+    <title>Contribuir | ${site_name}</title>
+    <link rel="stylesheet" href="/css/styles.css?v=${BUILD_HASH}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span class="logo-text">${site_name}</span>
+            </a>
+            <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
+                <svg viewBox="0 0 24 24">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+            <nav class="nav" id="nav-menu">
+$(echo -e "$nav_items")            </nav>
+            <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>${contrib_title}</h1>
+            <p>${contrib_subtitle}</p>
+        </section>
+
+        <section class="contrib-content">
+${contrib_content}
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>${site_name}</h3>
+                <p>${contrib_subtitle}</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+$(echo -e "$footer_links")            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+$([ -n "$site_email" ] && echo "                <p>${site_email}</p>")
+                <a href="${site_github}" target="_blank">GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; ${footer_copyright}. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="/js/app.js?v=${BUILD_HASH}" data-cfasync="false"></script>
+</body>
+</html>
+EOF
+    
+    log_success "Página Contribuir generada"
+}
+
 #===============================================================================
 # FUNCIONES DE VALIDACIÓN
 #===============================================================================
@@ -2917,6 +3465,12 @@ validate_assets() {
     # Verificar about.json
     if ! python3 -c "import json; json.load(open('${ABOUT_JSON}'))" 2>/dev/null; then
         log_error "Error en formato de about.json"
+        ((errors++))
+    fi
+    
+    # Verificar contribute.json
+    if ! python3 -c "import json; json.load(open('${CONTRIBUTE_JSON}'))" 2>/dev/null; then
+        log_error "Error en formato de contribute.json"
         ((errors++))
     fi
     
@@ -2993,6 +3547,9 @@ main() {
     # Generar páginas según secciones habilitadas
     if is_section_enabled "about"; then
         generate_about
+    fi
+    if is_section_enabled "contributing"; then
+        generate_contributing
     fi
     
     # Copiar assets estáticos
