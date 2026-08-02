@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Biblioteca digital del Núcleo Linux UAGRM. Libros gratuitos sobre informática, GNU/Linux, seguridad informática, programación y tecnología.">
+    <meta name="domain" content="https://biblioteca.nluagrm.org">
+    <link rel="canonical" href="https://biblioteca.nluagrm.org/">
+    <meta property="og:title" content="Biblioteca | Biblioteca Digital">
+    <meta property="og:description" content="Biblioteca digital del Núcleo Linux UAGRM. Libros gratuitos sobre informática, GNU/Linux, seguridad informática, programación y tecnología.">
+    <meta property="og:url" content="https://biblioteca.nluagrm.org/">
+    <meta property="og:type" content="website">
+    <title>Biblioteca | Biblioteca Digital</title>
+    <link rel="stylesheet" href="/css/styles.css?v=1785678874">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span class="logo-text">Biblioteca</span>
+            </a>
+            <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
+                <svg viewBox="0 0 24 24">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+            <nav class="nav" id="nav-menu">
+                <a href="/">Inicio</a>
+                <a href="/about.html">Acerca de</a>
+                <a href="/contribuir.html">Contribuir</a>
+                <a href="https://nluagrm.org" target="_blank" class="btn-nav-external">Núcleo Linux UAGRM</a>            </nav>
+            <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Biblioteca Digital</h1>
+            <p>Recursos de Informática, GNU/Linux y Software Libre</p>
+        </section>
+
+        <section class="search-container">
+            <div class="search-box">
+                <svg class="search-icon" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="M21 21l-4.35-4.35"/>
+                </svg>
+                <input type="search" 
+                       id="search-input" 
+                       class="search-input" 
+                       placeholder="Buscar por título, categoría o etiquetas..."
+                       aria-label="Buscar libros">
+            </div>
+        </section>
+
+        <div class="filter-bar">
+            <button class="filter-toggle-btn" onclick="toggleFilters()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                </svg>
+                Filtros
+                <span class="filter-count-badge" id="filter-count"></span>
+            </button>
+            <button class="filter-clear-btn" id="filter-clear" onclick="clearAllFilters()">
+                Limpiar filtros
+            </button>
+        </div>
+
+        <div class="filter-panel" id="filter-panel">
+            <div class="filter-group">
+                <h4>Categorías</h4>
+                <div class="filter-chips" id="filter-categories"><button class="filter-chip" data-category="GNU/Linux" onclick="toggleCategory('GNU/Linux')">GNU/Linux</button>
+<button class="filter-chip" data-category="Redes" onclick="toggleCategory('Redes')">Redes</button>
+<button class="filter-chip" data-category="Seguridad Informática" onclick="toggleCategory('Seguridad Informática')">Seguridad Informática</button></div>
+            </div>
+            <div class="filter-group">
+                <h4>Etiquetas</h4>
+                <div class="filter-chips" id="filter-tags"><button class="filter-chip" data-tag="debian" onclick="toggleTag('debian')">debian</button>
+<button class="filter-chip" data-tag="hacking" onclick="toggleTag('hacking')">hacking</button>
+<button class="filter-chip" data-tag="linux" onclick="toggleTag('linux')">linux</button>
+<button class="filter-chip" data-tag="redes" onclick="toggleTag('redes')">redes</button>
+<button class="filter-chip" data-tag="seguridad" onclick="toggleTag('seguridad')">seguridad</button>
+<button class="filter-chip" data-tag="tcp-ip" onclick="toggleTag('tcp-ip')">tcp-ip</button>
+<button class="filter-chip" data-tag="terminal" onclick="toggleTag('terminal')">terminal</button></div>
+            </div>
+        </div>
+
+        <section id="books-container" class="books-grid">
+<article class="book-card" data-title="Manual Practico de Linux Con Ejercicios" data-category="GNU/Linux" data-tags="linux,debian,terminal">
+            <img src="/img/covers/manual-practico-de-linux-con-ejercicios.webp" alt="Portada de Manual Practico de Linux Con Ejercicios" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">GNU/Linux</span>
+                <h3 class="book-title">Manual Practico de Linux Con Ejercicios</h3>
+                <div class="book-meta">
+                    <span>56 páginas</span>
+                    <span>2009</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/manual-practico-de-linux-con-ejercicios.pdf', 'Manual Practico de Linux Con Ejercicios')">Ver Libro</button>
+                    <a href="/pdf/manual-practico-de-linux-con-ejercicios.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Debian Hackers Elementals" data-category="Seguridad Informática" data-tags="seguridad,hacking,redes,debian">
+            <img src="/img/covers/debian-hackers-elementals.webp" alt="Portada de Debian Hackers Elementals" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Seguridad Informática</span>
+                <h3 class="book-title">Debian Hackers Elementals</h3>
+                <div class="book-meta">
+                    <span>56 páginas</span>
+                    <span>2014</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/debian-hackers-elementals.pdf', 'Debian Hackers Elementals')">Ver Libro</button>
+                    <a href="/pdf/debian-hackers-elementals.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Taller de seguridad inalambrica" data-category="Seguridad Informática" data-tags="redes,seguridad,hacking">
+            <img src="/img/covers/taller-de-seguridad-inalambrica.webp" alt="Portada de Taller de seguridad inalambrica" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Seguridad Informática</span>
+                <h3 class="book-title">Taller de seguridad inalambrica</h3>
+                <div class="book-meta">
+                    <span>260 páginas</span>
+                    <span>2000</span>
+                    <span>CC-BY-NC-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/taller-de-seguridad-inalambrica.pdf', 'Taller de seguridad inalambrica')">Ver Libro</button>
+                    <a href="/pdf/taller-de-seguridad-inalambrica.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Wireshark User's Guide" data-category="Redes" data-tags="redes,tcp-ip,seguridad">
+            <img src="/img/covers/wireshark-users-guide.webp" alt="Portada de Wireshark User's Guide" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Redes</span>
+                <h3 class="book-title">Wireshark User's Guide</h3>
+                <div class="book-meta">
+                    <span>388 páginas</span>
+                    <span>2026</span>
+                    <span>GPL</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/wireshark-users-guide.pdf', 'Wireshark User\'s Guide')">Ver Libro</button>
+                    <a href="/pdf/wireshark-users-guide.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="The Penetration Testing Execution Standard Documentation" data-category="Seguridad Informática" data-tags="hacking,seguridad">
+            <img src="/img/covers/the-penetration-testing-execution-standard-documentation.webp" alt="Portada de The Penetration Testing Execution Standard Documentation" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Seguridad Informática</span>
+                <h3 class="book-title">The Penetration Testing Execution Standard Documentation</h3>
+                <div class="book-meta">
+                    <span>237 páginas</span>
+                    <span>2022</span>
+                    <span>GPL-3.0</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/pentest-standard-readthedocs-io-en-latest.pdf', 'The Penetration Testing Execution Standard Documentation')">Ver Libro</button>
+                    <a href="/pdf/pentest-standard-readthedocs-io-en-latest.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="LPI Linux Essentials" data-category="GNU/Linux" data-tags="linux,terminal">
+            <img src="/img/covers/lpi-linux-essentials.webp" alt="Portada de LPI Linux Essentials" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">GNU/Linux</span>
+                <h3 class="book-title">LPI Linux Essentials</h3>
+                <div class="book-meta">
+                    <span>448 páginas</span>
+                    <span>2026</span>
+                    <span>CC BY-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/lpi-linux-essentials.pdf', 'LPI Linux Essentials')">Ver Libro</button>
+                    <a href="/pdf/lpi-linux-essentials.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="The Debian Administrator’s Handbook" data-category="GNU/Linux" data-tags="linux,terminal,debian">
+            <img src="/img/covers/debian-handbook.webp" alt="Portada de The Debian Administrator’s Handbook" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">GNU/Linux</span>
+                <h3 class="book-title">The Debian Administrator’s Handbook</h3>
+                <div class="book-meta">
+                    <span>542 páginas</span>
+                    <span>2026</span>
+                    <span>CC BY-SA GPL</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/debian-handbook.pdf', 'The Debian Administrator’s Handbook')">Ver Libro</button>
+                    <a href="/pdf/debian-handbook.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Kali Linux Revealed" data-category="Seguridad Informática" data-tags="linux,terminal,debian,seguridad,hacking">
+            <img src="/img/covers/kali-linux-revealed.webp" alt="Portada de Kali Linux Revealed" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Seguridad Informática</span>
+                <h3 class="book-title">Kali Linux Revealed</h3>
+                <div class="book-meta">
+                    <span>346 páginas</span>
+                    <span>2026</span>
+                    <span>CC BY-SA GPL</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/kali-linux-revealed.pdf', 'Kali Linux Revealed')">Ver Libro</button>
+                    <a href="/pdf/kali-linux-revealed.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+        </section>
+
+        <nav class="pagination" id="pagination" aria-label="Paginación">
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Biblioteca</h3>
+                <p>Biblioteca digital del Núcleo Linux UAGRM. Libros gratuitos sobre informática, GNU/Linux, seguridad informática, programación y tecnología.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <a href="/">Inicio</a><br>
+                <a href="/about.html">Acerca de</a><br>
+                <a href="/contribuir.html">Contribuir</a><br>            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+
+                <a href="https://github.com/nlbol" target="_blank">GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Biblioteca - Núcleo Linux UAGRM.</p>
+        </div>
+    </footer>
+
+    <div class="pdf-viewer-overlay" id="pdf-viewer">
+        <div class="pdf-viewer-header">
+            <button class="pdf-viewer-close" onclick="closePdfViewer()" aria-label="Cerrar visor">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <span class="pdf-viewer-title" id="pdf-viewer-title"></span>
+            <div class="pdf-viewer-toolbar">
+                <button class="pdf-tool-btn" id="pdf-prev" onclick="pdfGoPrev()" aria-label="Página anterior" title="Anterior">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <span class="pdf-page-info" id="pdf-page-info">1 / 1</span>
+                <button class="pdf-tool-btn" id="pdf-next" onclick="pdfGoNext()" aria-label="Página siguiente" title="Siguiente">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <span class="pdf-toolbar-sep"></span>
+                <button class="pdf-tool-btn" onclick="pdfZoomOut()" aria-label="Reducir" title="Zoom -">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><line x1="5" y1="12" x2="19" y2="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+                <span class="pdf-zoom-label" id="pdf-zoom-label">100%</span>
+                <button class="pdf-tool-btn" onclick="pdfZoomIn()" aria-label="Ampliar" title="Zoom +">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><line x1="12" y1="5" x2="12" y2="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+                <span class="pdf-toolbar-sep"></span>
+                <button class="pdf-tool-btn" onclick="pdfFitWidth()" aria-label="Ajustar al ancho" title="Ajustar ancho">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><path d="M21 3H3v18h18V3zM9 3v18M15 3v18M3 9h18M3 15h18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+                <button class="pdf-tool-btn" onclick="pdfFitPage()" aria-label="Ajustar a página" title="Ajustar página">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><rect x="4" y="2" width="16" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="6" x2="16" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="14" x2="13" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="pdf-viewer-body" id="pdf-viewer-body">
+            <div class="pdf-viewer-loading" id="pdf-loading">
+                <div class="pdf-spinner"></div>
+                <span>Cargando PDF...</span>
+            </div>
+            <div class="pdf-viewer-scroll" id="pdf-scroll">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" data-cfasync="false"></script>
+    <script>
+        if (typeof pdfjsLib !== 'undefined') {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" data-cfasync="false"></script>
+    <script>
+        window.CATALOG_CONFIG = {
+            booksPerPage: {
+                desktop: 8,
+                tablet: 6,
+                mobile: 4
+            }
+        };
+    </script>
+    <script src="/js/app.js?v=1785678874" data-cfasync="false"></script>
+</body>
+</html>

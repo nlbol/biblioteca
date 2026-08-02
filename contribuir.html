@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Agrega libros a la biblioteca con Git y GitHub">
+    <link rel="canonical" href="https://biblioteca.nluagrm.org/contribuir.html">
+    <title>Contribuir | Biblioteca</title>
+    <link rel="stylesheet" href="/css/styles.css?v=1785678874">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <span class="logo-text">Biblioteca</span>
+            </a>
+            <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
+                <svg viewBox="0 0 24 24">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+            <nav class="nav" id="nav-menu">
+                <a href="/">Inicio</a>
+                <a href="/about.html">Acerca de</a>
+                <a href="/contribuir.html">Contribuir</a>
+                <a href="https://nluagrm.org" target="_blank" class="btn-nav-external">Núcleo Linux UAGRM</a>            </nav>
+            <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Contribuir</h1>
+            <p>Agrega libros a la biblioteca con Git y GitHub</p>
+        </section>
+
+        <section class="contrib-content">
+        <p class="contrib-intro">La biblioteca es un proyecto abierto: cualquier persona puede aportar libros. Todo el contenido vive en un repositorio de GitHub y se publica automáticamente con cada cambio aceptado.</p>
+        <p class="contrib-intro">Antes de comenzar, revisa las licencias aceptadas. Luego sigue la guía paso a paso para enviar tu primer libro usando el flujo profesional de contribución: Fork, rama de trabajo, Pull Request y revisión.</p>
+        <div class="info-box">
+            <span class="info-icon">i</span>
+            <p><strong>Importante: licencias aceptadas.</strong> Únicamente se aceptarán libros cuya licencia permita su distribución legal. Se recomienda contribuir únicamente con obras bajo licencias libres o abiertas, por ejemplo:</p>
+        </div>
+        <div class="license-grid">
+            <span class="license-item">Creative Commons</span>
+            <span class="license-item">GPL</span>
+            <span class="license-item">LGPL</span>
+            <span class="license-item">FDL</span>
+            <span class="license-item">MIT</span>
+            <span class="license-item">BSD</span>
+            <span class="license-item">Apache 2.0</span>
+            <span class="license-item">MPL</span>
+            <span class="license-item">Dominio Público</span>
+        </div>
+        <p>Existen muchas otras licencias compatibles. Antes de contribuir, verifica siempre que la licencia permita la redistribución legal del contenido.</p>
+        <ul>
+            <li>No envíes libros protegidos por copyright sin autorización.</li>
+            <li>El colaborador es responsable de verificar la licencia antes de realizar la contribución.</li>
+            <li>Si existe alguna duda sobre la licencia, es preferible no enviar el material hasta confirmar que su distribución está permitida.</li>
+        </ul>
+        <div class="steps-divider">
+            <span>Guía de contribución</span>
+        </div>
+        <div class="step-card">
+            <h2><span class="step-num">01</span>Crea un Fork</h2>
+        <p>Entra al repositorio oficial de la biblioteca y pulsa el botón <strong>Fork</strong> en la esquina superior derecha. Esto crea una copia del proyecto en tu cuenta de GitHub que podrás modificar libremente. Necesitas una cuenta de GitHub (es gratuita).</p>
+        <p>Durante la creación del Fork, asegúrate de copiar todas las ramas del repositorio y no únicamente la rama predeterminada. Si GitHub te muestra la opción que limita la copia a una sola rama, desmárcala.</p>
+        <p>El objetivo es que tu Fork también contenga la rama <code>development</code>, ya que será la rama que utilizarás durante toda la contribución.</p>
+        </div>
+        <div class="step-card">
+            <h2><span class="step-num">02</span>Clona el repositorio</h2>
+        <p>Clona tu Fork en tu máquina local usando directamente la rama <code>development</code> y entra al directorio del proyecto. Reemplaza <code>TU_USUARIO</code> con el nombre de tu cuenta de GitHub. A partir de esa rama crearás tu propia rama de trabajo.</p>
+<div class="terminal">
+    <div class="terminal-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">terminal</span>
+    </div>
+    <div class="terminal-body">
+        <p><span class="prompt">$</span> <span class="cmd">git clone -b development git@github.com:TU_USUARIO/biblioteca.git</span></p>
+        <p><span class="prompt">$</span> <span class="cmd">cd biblioteca</span></p>
+        <p class="comment"># Si no tienes SSH configurado, usa HTTPS:</p>
+        <p class="comment"># git clone -b development https://github.com/TU_USUARIO/biblioteca.git</p>
+    </div>
+</div>
+        </div>
+        <div class="step-card">
+            <h2><span class="step-num">03</span>Crea una rama de trabajo</h2>
+        <p>Desde la rama <code>development</code>, crea tu propia rama de trabajo con un nombre corto y descriptivo, por ejemplo <code>libros</code>. Todas las modificaciones deben realizarse únicamente sobre esta rama y nunca directamente sobre <code>development</code>.</p>
+<div class="terminal">
+    <div class="terminal-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">terminal</span>
+    </div>
+    <div class="terminal-body">
+        <p><span class="prompt">$</span> <span class="cmd">git checkout -b libros</span></p>
+        <p class="comment"># Crea y cambia a una rama nueva para tu contribución</p>
+    </div>
+</div>
+        </div>
+        <div class="step-card">
+            <h2><span class="step-num">04</span>Agrega los archivos del libro</h2>
+        <p>Copia los archivos del libro en los recursos del proyecto: el PDF en <code>assets/pdf/</code> y la portada en <code>assets/img/covers/</code>.</p>
+<div class="terminal">
+    <div class="terminal-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">estructura</span>
+    </div>
+    <div class="terminal-body">
+        <p>assets/</p>
+        <p>├── img/covers/   ← copia aquí la portada (png, jpg o webp)</p>
+        <p>└── pdf/          ← copia aquí el libro (.pdf)</p>
+    </div>
+</div>
+        <ul>
+            <li>El nombre del PDF debe ser descriptivo, en minúsculas y con guiones, sin espacios ni acentos.</li>
+            <li>La portada se convierte automáticamente a webp al generar el sitio.</li>
+        </ul>
+        </div>
+        <div class="step-card">
+            <h2><span class="step-num">05</span>Registrar el libro</h2>
+        <p>El archivo que debes editar es <code>assets/information/books.json</code>. Ese archivo contiene el catálogo de libros de la biblioteca y es <strong>obligatorio</strong> registrar allí el nuevo libro para que el generador pueda incluirlo en el sitio.</p>
+        <p>Agrega un nuevo registro al final de la lista (recuerda la coma entre entradas), siguiendo exactamente el formato existente:</p>
+<div class="json-block">
+    <p>{</p>
+    <p>    <span class="key">"title"</span>: <span class="str">&quot;Título del Libro&quot;</span>,</p>
+    <p>    <span class="key">"file"</span>: <span class="str">&quot;titulo-del-libro.pdf&quot;</span>,</p>
+    <p>    <span class="key">"cover"</span>: <span class="str">&quot;titulo-del-libro.png&quot;</span>,</p>
+    <p>    <span class="key">"pages"</span>: <span class="num">120</span>,</p>
+    <p>    <span class="key">"license"</span>: <span class="str">&quot;CC-BY-SA&quot;</span>,</p>
+    <p>    <span class="key">"category"</span>: <span class="str">&quot;GNU/Linux&quot;</span>,</p>
+    <p>    <span class="key">"tags"</span>: [</p>
+    <p>        <span class="str">&quot;linux&quot;</span>,</p>
+    <p>        <span class="str">&quot;terminal&quot;</span></p>
+    <p>    ],</p>
+    <p>    <span class="key">"year"</span>: <span class="num">2026</span></p>
+    <p>}</p>
+</div>
+        <p>Cada campo tiene un significado:</p>
+        <ul>
+            <li><code>title</code>: título del libro tal como aparecerá en el sitio.</li>
+            <li><code>file</code>: nombre exacto del PDF que colocaste en <code>assets/pdf/</code>.</li>
+            <li><code>cover</code>: nombre de la portada en <code>assets/img/covers/</code>.</li>
+            <li><code>pages</code>: número de páginas del libro.</li>
+            <li><code>license</code>: licencia bajo la que se distribuye.</li>
+            <li><code>category</code>: categoría del libro.</li>
+            <li><code>tags</code>: etiquetas descriptivas para facilitar la búsqueda.</li>
+            <li><code>year</code>: año de publicación.</li>
+        </ul>
+        <ul>
+            <li>Verifica que el PDF se abra correctamente antes de publicarlo.</li>
+            <li>Usa una categoría existente o agrega una coherente con el contenido.</li>
+        </ul>
+        </div>
+        <div class="step-card">
+            <h2><span class="step-num">06</span>Genera el sitio</h2>
+        <p>Ejecuta el generador para comprobar que todo funciona. La salida se escribe en la carpeta <code>public/</code>, que no debe editarse a mano.</p>
+<div class="terminal">
+    <div class="terminal-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">terminal</span>
+    </div>
+    <div class="terminal-body">
+        <p><span class="prompt">$</span> <span class="cmd">./generador.sh</span></p>
+        <p class="comment"># Genera la carpeta public/ con el sitio completo</p>
+    </div>
+</div>
+        <div class="info-box">
+            <span class="info-icon">i</span>
+            <p>Abre <code>public/index.html</code> en tu navegador para verificar que tu libro aparece con su portada, categoría y etiquetas correctas.</p>
+        </div>
+        </div>
+        <div class="step-card">
+            <h2><span class="step-num">07</span>Haz commit de los cambios</h2>
+        <p>Registra los archivos agregados con un mensaje descriptivo que mencione el título del libro.</p>
+<div class="terminal">
+    <div class="terminal-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">terminal</span>
+    </div>
+    <div class="terminal-body">
+        <p><span class="prompt">$</span> <span class="cmd">git add .</span></p>
+        <p><span class="prompt">$</span> <span class="cmd">git commit -m "Agregar libro: Título del Libro"</span></p>
+    </div>
+</div>
+        </div>
+        <div class="step-card">
+            <h2><span class="step-num">08</span>Envía tu contribución</h2>
+        <p>Sube tu rama <code>libros</code> a tu Fork. El push envía los cambios exactamente a la rama <code>libros</code> que creaste antes, que será la base del Pull Request.</p>
+<div class="terminal">
+    <div class="terminal-header">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <span class="terminal-title">terminal</span>
+    </div>
+    <div class="terminal-body">
+        <p><span class="prompt">$</span> <span class="cmd">git push -u origin libros</span></p>
+    </div>
+</div>
+        <p>En GitHub, abre tu repositorio y verás el botón <strong>Compare &amp; pull request</strong>. Asegúrate de que el Pull Request se abra desde la rama <code>libros</code> de tu Fork hacia la rama <code>development</code> del repositorio oficial. Describe el libro que agregas y envía la solicitud. El equipo la revisará y, una vez aprobada, la biblioteca se actualizará automáticamente.</p>
+        <div class="info-box">
+            <span class="info-icon">i</span>
+            <p>La rama <code>development</code> recibe actualizaciones una vez por semana, normalmente los domingos por la noche. Si tu Pull Request presenta conflictos, sincroniza primero tu Fork con la versión más reciente de <code>development</code> antes de continuar.</p>
+        </div>
+        </div>
+        <div class="info-box">
+            <span class="info-icon">i</span>
+            <p>¡Gracias por contribuir al conocimiento libre! Si tienes dudas, revisa el repositorio oficial <a href="https://github.com/nlbol" target="_blank" rel="noopener">en GitHub</a>.</p>
+        </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Biblioteca</h3>
+                <p>Agrega libros a la biblioteca con Git y GitHub</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <a href="/">Inicio</a><br>
+                <a href="/about.html">Acerca de</a><br>
+                <a href="/contribuir.html">Contribuir</a><br>            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+
+                <a href="https://github.com/nlbol" target="_blank">GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Biblioteca - Núcleo Linux UAGRM. Santa Cruz, Bolivia.</p>
+        </div>
+    </footer>
+
+    <script src="/js/app.js?v=1785678874" data-cfasync="false"></script>
+</body>
+</html>
