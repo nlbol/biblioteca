@@ -44,11 +44,11 @@
             "blocks": [
                 {
                     "type": "paragraph",
-                    "text": "Entra al repositorio oficial de la biblioteca y pulsa el botón **Fork** en la esquina superior derecha. Esto crea una copia del proyecto en tu cuenta de GitHub que podrás modificar libremente. Necesitas una cuenta de GitHub (es gratuita)."
+                    "text": "Entra al repositorio oficial de la [biblioteca](https://github.com/nlbol/biblioteca) y pulsa el botón **Fork** en la esquina superior derecha. Esto crea una copia del proyecto en tu cuenta de GitHub que podrás modificar libremente. Necesitas una cuenta de GitHub (es gratuita)."
                 },
                 {
                     "type": "paragraph",
-                    "text": "Durante la creación del Fork, asegúrate de copiar todas las ramas del repositorio y no únicamente la rama predeterminada. Si GitHub te muestra la opción que limita la copia a una sola rama, desmárcala."
+                    "text": "Durante la creación del Fork, **asegúrate de copiar todas las ramas del repositorio** y no únicamente la rama predeterminada. Si GitHub te muestra la opción que limita la copia a una sola rama, desmárcala."
                 },
                 {
                     "type": "paragraph",
