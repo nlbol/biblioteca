@@ -78,5 +78,676 @@
         "category": "Seguridad Informática",
         "tags": ["linux", "terminal", "debian", "seguridad", "hacking"],
         "year": 2026
-    }
+    },  
+    {
+		"title": "Arduino Bolivia 01",
+		"file": "arduino-bolivia-01.pdf",
+		"cover": "arduino-bolivia-01.webp",
+		"pages": 26,
+		"license": "CC-BY-NC-ND",
+		"category": "Robótica",
+		"tags": ["bolivia", "arduino", "revista"],
+		"year": 2018
+	},
+	{
+		"title": "Arduino Bolivia 02",
+		"file": "arduino-bolivia-02.pdf",
+		"cover": "arduino-bolivia-02.webp",
+		"pages": 40,
+		"license": "CC-BY-NC-ND",
+		"category": "Robótica",
+		"tags": ["bolivia", "arduino", "revista"],
+		"year": 2018
+	}, 
+	{
+		"title": "Arduino Bolivia 03",
+		"file": "arduino-bolivia-03.pdf",
+		"cover": "arduino-bolivia-03.webp",
+		"pages": 34,
+		"license": "CC-BY-NC-ND",
+		"category": "Robótica",
+		"tags": ["bolivia", "arduino", "revista"],
+		"year": 2018
+	}, 
+	{
+		"title": "Arduino Bolivia 04",
+		"file": "arduino-bolivia-04.pdf",
+		"cover": "arduino-bolivia-04.webp",
+		"pages": 32,
+		"license": "CC-BY-NC-ND",
+		"category": "Robótica",
+		"tags": ["bolivia", "arduino", "revista"],
+		"year": 2018
+	}, 
+	{
+		"title": "Arduino Bolivia 05",
+		"file": "arduino-bolivia-05.pdf",
+		"cover": "arduino-bolivia-05.webp",
+		"pages": 31,
+		"license": "CC-BY-NC-ND",
+		"category": "Robótica",
+		"tags": ["bolivia", "arduino", "revista"],
+		"year": 2019
+	}, 
+	{
+		"title": "Arduino Bolivia 06",
+		"file": "arduino-bolivia-06.pdf",
+		"cover": "arduino-bolivia-06.webp",
+		"pages": 22,
+		"license": "CC-BY-NC-ND",
+		"category": "Robótica",
+		"tags": ["bolivia", "arduino", "revista"],
+		"year": 2019
+	}, 
+	{
+		"title": "Arduino Bolivia 07",
+		"file": "arduino-bolivia-07.pdf",
+		"cover": "arduino-bolivia-07.webp",
+		"pages": 27,
+		"license": "CC-BY-NC-ND",
+		"category": "Robótica",
+		"tags": ["bolivia", "arduino", "revista"],
+		"year": 2019
+	}, 
+	{
+		"title": "ATIX 01",
+		"file": "atix-01.pdf",
+		"cover": "atix-01.webp",
+		"pages": 42,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "flisol", "java", "simphony", "revista"],
+		"year": 2008
+	}, 
+	{
+		"title": "ATIX 02",
+		"file": "atix-02.pdf",
+		"cover": "atix-02.webp",
+		"pages": 64,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia" , "openssh", "vsftpd", "revista"],
+		"year": 2008
+	},
+	{
+		"title": "ATIX 03",
+		"file": "atix-03.pdf",
+		"cover": "atix-03.webp",
+		"pages": 62,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "apache", "blender", "revista"],
+		"year": 2008
+	},
+	{
+		"title": "ATIX 04",
+		"file": "atix-04.pdf",
+		"cover": "atix-04.webp",
+		"pages": 73,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "postgresql", "gnupg", "revista"],
+		"year": 2008
+	}, 
+	{
+		"title": "ATIX 05",
+		"file": "atix-05.pdf",
+		"cover": "atix-05.webp",
+		"pages": 58,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "c++", "revista"],
+		"year": 2008
+	},
+	{
+		"title": "ATIX 06",
+		"file": "atix-06.pdf",
+		"cover": "atix-06.webp",
+		"pages": 60,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "c++", "revista"],
+		"year": 2008
+	},
+	{
+		"title": "ATIX 07",
+		"file": "atix-07.pdf",
+		"cover": "atix-07.webp",
+		"pages": 73,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "c++", "openssl", "revista"],
+		"year": 2009
+	},
+	{
+		"title": "ATIX 08",
+		"file": "atix-08.pdf",
+		"cover": "atix-08.webp",
+		"pages": 78,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "openssl", "revista"],
+		"year": 2009
+	},
+	{
+		"title": "ATIX 09",
+		"file": "atix-09.pdf",
+		"cover": "atix-09.webp",
+		"pages": 70,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "ncurses", "snmp", "revista"],
+		"year": 2009
+	},
+	{
+		"title": "ATIX 10",
+		"file": "atix-10.pdf",
+		"cover": "atix-10.webp",
+		"pages": 72,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "octave", "debian", "revista"],
+		"year": 2009
+	},
+	{
+		"title": "ATIX 11",
+		"file": "atix-11.pdf",
+		"cover": "atix-11.webp",
+		"pages": 70,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "mono", "revista"],
+		"year": 2009
+	},
+	{
+		"title": "ATIX 12",
+		"file": "atix-12.pdf",
+		"cover": "atix-12.webp",
+		"pages": 68,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "mono", "webmin", "revista"],
+		"year": 2009
+	},
+	{
+		"title": "ATIX 13",
+		"file": "atix-13.pdf",
+		"cover": "atix-13.webp",
+		"pages": 55,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": [
+		"bolivia", "mono", "sqlite", "revista"],
+		"year": 2009
+	}, 
+	{
+		"title": "ATIX 14",
+		"file": "atix-14.pdf",
+		"cover": "atix-14.webp",
+		"pages": 51,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "mono", "revista"],
+		"year": 2009
+	},
+	{
+		"title": "ATIX 15",
+		"file": "atix-15.pdf",
+		"cover": "atix-15.webp",
+		"pages": 49,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["c#", "mono", "sqlite", "revista"],
+		"year": 2009
+	},
+	{
+		"title": "ATIX 16",
+		"file": "atix-16.pdf",
+		"cover": "atix-16.webp",
+		"pages": 36,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "jmeter", "bases de datos documentales", "pandora", "revista"],
+		"year": 2010
+	},
+	{
+		"title": "ATIX 17",
+		"file": "atix-17.pdf",
+		"cover": "atix-17.webp",
+		"pages": 55,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "uml", "mono", "apache", "revista"],
+		"year": 2010
+	},
+	{
+		"title": "ATIX 18",
+		"file": "atix-18.pdf",
+		"cover": "atix-18.webp",
+		"pages": 55,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "ria", "mono", "apache ant", "revista"],
+		"year": 2010
+	},
+	{
+		"title": "ATIX 19",
+		"file": "atix-19.pdf",
+		"cover": "atix-19.webp",
+		"pages": 55,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["bolivia", "html5", "scilab", "ntp", "revista"],
+		"year": 2011
+	},
+	{
+		"title": "ATIX 20",
+		"file": "atix-20.pdf",
+		"cover": "atix-20.webp",
+		"pages": 68,
+		"license": "CC-BY-SA-NC-ND",
+		"category": "Software Libre",
+		"tags": ["bolivia", "play framework", "postgresql", "mono", "revista"],
+		"year": 2013
+	},
+	{
+		"title": "ATIX 21",
+		"file": "atix-21.pdf",
+		"cover": "atix-21.webp",
+		"pages": 69,
+		"license": "CC-BY-SA-NC-ND",
+		"category": "Software Libre",
+		"tags": ["bolivia", "ria", "play framework", "postgresql", "mono", "bash", "revista"],
+		"year": 2013
+	},
+	{
+		"title": "ATIX 22",
+		"file": "atix-22.pdf",
+		"cover": "atix-22.webp",
+		"pages": 41,
+		"license": "CC-BY-SA-NC-ND",
+		"category": "Software Libre",
+		"tags": ["bolivia", "play framework", "ria", "revista"],
+		"year": 2013
+	},
+	{
+		"title": "ATIX 23",
+		"file": "atix-23.pdf",
+		"cover": "atix-23.webp",
+		"pages": 46,
+		"license": "CC-BY-SA-NC-ND",
+		"category": "Software Libre",
+		"tags": ["bolivia", "nodejs", "libreplan", "ansible", "python", "revista"],
+		"year": 2018
+	},
+	{
+		"title": "ATIX 24",
+		"file": "atix-24.pdf",
+		"cover": "atix-24.webp",
+		"pages": 60,
+		"license": "CC-BY-SA-NC-ND",
+		"category": "Software Libre",
+		"tags": ["bolivia", "flask", "arduino", "rabbitmq", "revista"],
+		"year": 2018
+	},
+	{
+		"title": "ATIX 25",
+		"file": "atix-25.pdf",
+		"cover": "atix-25.webp",
+		"pages": 58,
+		"license": "CC-BY-SA-NC-ND",
+		"category": "Software Libre",
+		"tags": ["bolivia", "arduino", "openoffice", "redis", "revista"],
+		"year": 2018
+	},
+	{
+		"title": "ATIX 26",
+		"file": "atix-26.pdf",
+		"cover": "atix-26.webp",
+		"pages": 48,
+		"license": "CC-BY-SA-NC-ND",
+		"category": "Software Libre",
+		"tags": ["bolivia", "lxc", "lxd", "arduino", "revista"],
+		"year": 2018
+	},
+	{
+		"title": "ATIX 27",
+		"file": "atix-27.pdf",
+		"cover": "atix-27.webp",
+		"pages": 41,
+		"license": "CC-BY-SA-NC-ND",
+		"category": "Software Libre",
+		"tags": ["bolivia", "arduino", "lxc", "lxd", "ocs inventory", "revista"],
+		"year": 2018
+	},
+	{
+		"title": "ATIX 28",
+		"file": "atix-28.pdf",
+		"cover": "atix-28.webp",
+		"pages": 43,
+		"license": "CC-BY-SA-NC-ND",
+		"category": "Software Libre",
+		"tags": ["bolivia", "duplicati", "arduino", "lxd", "revista"],
+		"year": 2018
+	},
+	{
+		"title": "ATIX 29",
+		"file": "atix-29.pdf",
+		"cover": "atix-29.webp",
+		"pages": 40,
+		"license": "CC-BY-SA-NC-ND",
+		"category": "Software Libre",
+		"tags": ["bolivia", "pseint", "librepcb", "arduino", "neth server", "revista"],
+		"year": 2019
+	},
+	{
+		"title": "Bash Notes for Professionals",
+		"file": "bash-notes-for-professionals.pdf",
+		"cover": "bash-notes-for-professionals.webp",
+		"pages": 204,
+		"license": "CC-BY-SA",
+		"category": "GNU/Linux",
+		"tags": ["linux", "terminal"],
+		"year": 2016
+	},
+	{
+		"title": "C Plus Plus Notes for Professionals",
+		"file": "c-plus-plus-notes-for-professionals.pdf",
+		"cover": "c-plus-plus-notes-for-professionals.webp",
+		"pages": 708,
+		"license": "CC-BY-SA",
+		"category": "Programacion",
+		"tags": ["c++"],
+		"year": 2020
+	},
+	{
+		"title": "C Sharp Notes for Professionals",
+		"file": "csharp-notes-for-professionals.pdf",
+		"cover": "csharp-notes-for-professionals.webp",
+		"pages": 808,
+		"license": "CC-BY-SA",
+		"category": "Programacion",
+		"tags": ["c#"],
+		"year": 2017
+	},
+	{
+		"title": "CSS  Notes for Professionals",
+		"file": "css-notes-for-professionals.pdf",
+		"cover": "css-notes-for-professionals.webp",
+		"pages": 244,
+		"license": "CC-BY-SA",
+		"category": "Programacion",
+		"tags": ["desarrollo web","css"],
+		"year": 2015
+	},
+	{
+		"title": "Dive Into HTML5",
+		"file": "dive-into-html5.pdf",
+		"cover": "dive-into-html5.webp",
+		"pages": 356,
+		"license": "CC-BY",
+		"category": "Programacion",
+		"tags": ["desarrollo web","html5"],
+		"year": 2010
+	},
+	{
+		"title": "Guía de Base",
+		"file": "guia-de-base.pdf",
+		"cover": "guia-de-base.webp",
+		"pages": 510,
+		"license": "CC-BY",
+		"category": "Ofimática",
+		"tags": ["libreoffice", "ofimatica"],
+		"year": 2021
+	},
+	{
+		"title": "Guía de Calc",
+		"file": "guia-de-calc.pdf",
+		"cover": "guia-de-calc.webp",
+		"pages": 654,
+		"license": "CC-BY",
+		"category": "Ofimática",
+		"tags": ["libreoffice", "ofimatica"],
+		"year": 2021
+	},
+	{
+		"title": "Guía de Draw",
+		"file": "guia-de-draw.pdf",
+		"cover": "guia-de-draw.webp",
+		"pages": 366,
+		"license": "CC-BY",
+		"category": "Ofimática",
+		"tags": ["libreoffice", "ofimatica"],
+		"year": 2024
+	},
+	{
+		"title": "Guía de Impress",
+		"file": "guia-de-impress.pdf",
+		"cover": "guia-de-impress.webp",
+		"pages": 357,
+		"license": "CC-BY",
+		"category": "Ofimática",
+		"tags": ["libreoffice", "ofimatica"],
+		"year": 2023
+	},
+	{
+		"title": "Guía de Math",
+		"file": "guia-de-math.pdf",
+		"cover": "guia-de-math.webp",
+		"pages": 80,
+		"license": "CC-BY",
+		"category": "Ofimática",
+		"tags": ["libreoffice", "ofimatica"],
+		"year": 2025
+	},
+	{
+		"title": "Guía de Referencia de Debian",
+		"file": "guia-de-referencia-de-debian.pdf",
+		"cover": "guia-de-referencia-de-debian.webp",
+		"pages": 300,
+		"license": "GPL",
+		"category": "GNU/Linux",
+		"tags": ["debian", "linux", "terminal", "redes"],
+		"year": 2024
+	},
+	{
+		"title": "Guía de Writer",
+		"file": "guia-de-writer.pdf",
+		"cover": "guia-de-writer.webp",
+		"pages": 524,
+		"license": "CC-BY",
+		"category": "Ofimática",
+		"tags": ["libreoffice", "ofimatica"],
+		"year": 2026
+	},
+	{
+		"title": "HTML5 Notes for Professionals",
+		"file": "html5-notes-for-professionals.pdf",
+		"cover": "html5-notes-for-professionals.webp",
+		"pages": 124,
+		"license": "CC-BY-SA",
+		"category": "Programacion",
+		"tags": ["desarrollo web", "html5"],
+		"year": 2016
+	},
+	{
+		"title": "Java Notes for Professionals",
+		"file": "java-notes-for-professionals.pdf",
+		"cover": "java-notes-for-professionals.webp",
+		"pages": 982,
+		"license": "CC-BY-SA",
+		"category": "Programacion",
+		"tags": ["java", "j2se"],
+		"year": 2018
+	},
+	{
+		"title": "Manual de Seguridad de Debian",
+		"file": "manual-de-seguridad-de-debian.pdf",
+		"cover": "manual-de-seguridad-de-debian.webp",
+		"pages": 191,
+		"license": "GPL",
+		"category": "Seguridad Informática",
+		"tags": ["debian", "linux", "seguridad"],
+		"year": 2024
+	},
+	{
+		"title": "MongoDB Notes for Professionals",
+		"file": "mongodb-notes-for-professionals.pdf",
+		"cover": "mongodb-notes-for-professionals.webp",
+		"pages": 73,
+		"license": "CC-BY-SA",
+		"category": "Programacion",
+		"tags": ["desarrollo web", "bases de datos no relacionales"],
+		"year": 2017
+	},
+	{
+		"title": "MySQL Notes for Professionals",
+		"file": "mysql-notes-for-professionals.pdf",
+		"cover": "mysql-notes-for-professionals.webp",
+		"pages": 199,
+		"license": "CC-BY-SA",
+		"category": "Programacion",
+		"tags": ["desarrollo web", "bases de datos relacionales", "sql"],
+		"year": 2015
+	},
+	{
+		"title": "OWASP MASVS",
+		"file": "owasp-masvs.pdf",
+		"cover": "owasp-masvs.webp",
+		"pages": 35,
+		"license": "CC-BY-SA",
+		"category": "Seguridad Informática",
+		"tags": ["owasp", "movil", "vulnerabilidades"],
+		"year": 2024
+	},
+	{
+		"title": "OWASP Top 10 2017",
+		"file": "owasp-top-10-2017.pdf",
+		"cover": "owasp-top-10-2017.webp",
+		"pages": 25,
+		"license": "CC-BY-SA",
+		"category": "Seguridad Informática",
+		"tags": ["owasp", "web", "vulnerabilidades"],
+		"year": 2017
+	},
+	{
+		"title": "OWASP Top 10 for LLM Applications 2026",
+		"file": "owasp-top-10-for-llm-applications-2026.pdf",
+		"cover": "owasp-top-10-for-llm-applications-2026.webp",
+		"pages": 122,
+		"license": "CC-BY-SA",
+		"category": "Seguridad Informática",
+		"tags": ["owasp", "llm", "vulnerabilidades"],
+		"year": 2026
+	},
+	{
+		"title": "PHP Notes for Professionals",
+		"file": "php-notes-for-professionals.pdf",
+		"cover": "php-notes-for-professionals.webp",
+		"pages": 481,
+		"license": "CC-BY-SA",
+		"category": "Programacion",
+		"tags": ["desarrollo web", "php"],
+		"year": 2019
+	},
+	{
+		"title": "Por una Cultura Libre",
+		"file": "por-una-cultura-libre.pdf",
+		"cover": "por-una-cultura-libre.webp",
+		"pages": 287,
+		"license": "CC-BY-NC",
+		"category": "Software Libre",
+		"tags": ["cultura libre", "lawrence lessing", "filosofia"],
+		"year": 2005
+	},
+	{
+		"title": "PostgreSQL Notes for Professionals",
+		"file": "postgresql-notes-for-professionals.pdf",
+		"cover": "postgresql-notes-for-professionals.webp",
+		"pages": 74,
+		"license": "CC-BY-SA",
+		"category": "Programacion",
+		"tags": ["desarrollo web", "bases de datos relacionales", "sql"],
+		"year": 2017
+	},
+	{
+		"title": "Python Notes for Professionals",
+		"file": "python-notes-for-professionals.pdf",
+		"cover": "python-notes-for-professionals.webp",
+		"pages": 856,
+		"license": "CC-BY-SA",
+		"category": "Programacion",
+		"tags": ["python"],
+		"year": 2020
+	},
+	{
+		"title": "Redes Inalambricas en los Paises en Desarrollo",
+		"file": "redes-inalambricas-en-los-paises-en-desarrollo.pdf",
+		"cover": "redes-inalambricas-en-los-paises-en-desarrollo.webp",
+		"pages": 530,
+		"license": "CC-BY-SA",
+		"category": "Redes",
+		"tags": ["antenas", "wifi"],
+		"year": 2013
+	},
+	{
+		"title": "Saber Libre 01",
+		"file": "saber-libre-01.pdf",
+		"cover": "saber-libre-01.webp",
+		"pages": 27,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["soberania tecnologica", "educacion", "seguridad"],
+		"year": 2014
+	},
+	{
+		"title": "Saber Libre 02",
+		"file": "saber-libre-02.pdf",
+		"cover": "saber-libre-02.webp",
+		"pages": 28,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["seguridad", "zimbra", "yatiña iyambae"],
+		"year": 2014
+	},
+	{
+		"title": "Saber Libre 03",
+		"file": "saber-libre-03.pdf",
+		"cover": "saber-libre-03.webp",
+		"pages": 23,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["tic", "educacion", "miubuntu"],
+		"year": 2014
+	},
+	{
+		"title": "Software Libre para una Sociedad Libre",
+		"file": "software-libre-para-una-sociedad-libre.pdf",
+		"cover": "software-libre-para-una-sociedad-libre.webp",
+		"pages": 318,
+		"license": "GPL",
+		"category": "Software Libre",
+		"tags": ["software libre", "richard stallman", "filosofia"],
+		"year": 2004
+	},
+	{
+		"title": "Software Libre tecnicamente viable economicamente sostenible y socialmente justo",
+		"file": "software-libre-tecnicamente-viable-economicamente-sostenible-y-socialmente-justo.pdf",
+		"cover": "software-libre-tecnicamente-viable-economicamente-sostenible-y-socialmente-justo.webp",
+		"pages": 191,
+		"license": "CC-BY-SA",
+		"category": "Software Libre",
+		"tags": ["software libre", "empresas de software libre", "modelo economicos del software libre"],
+		"year": 2005
+	},
+	{
+		"title": "State of Agentic AI Security and Governance",
+		"file": "state-of-agentic-ai-security-and-governance.pdf",
+		"cover": "state-of-agentic-ai-security-and-governance.webp",
+		"pages": 139,
+		"license": "CC-BY-SA",
+		"category": "Seguridad Informática",
+		"tags": ["owasp", "agentes IA"],
+		"year": 2026
+	}   
 ]
