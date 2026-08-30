@@ -364,6 +364,12 @@ copy_static_assets() {
         cp -r "$PDF_DIR"/* "${PUBLIC_DIR}/pdf/" 2>/dev/null || true
         log_verbose "PDFs copiados a public/pdf/"
     fi
+
+    # Copiar logo desde assets/img
+    if [ -f "$ASSETS_DIR/logo.svg" ]; then
+        cp "$ASSETS_DIR/logo.svg" "${PUBLIC_DIR}/img/" 2>/dev/null || true
+        log_verbose "Logo copiado a public/img/"
+    fi
     
     log_success "Archivos estáticos copiados"
 }
@@ -2605,6 +2611,63 @@ EOF
     log_success "JavaScript generado"
 }
 
+# Generar header HTML reutilizable
+generate_header() {
+    local site_name
+    site_name=$(read_config "site.name")
+    
+    # Construir navegación según secciones habilitadas
+    local nav_items=""
+    if is_section_enabled "home"; then
+        nav_items="${nav_items}                <a href=\"/\">Inicio</a>\n"
+    fi
+    if is_section_enabled "catalog"; then
+        nav_items="${nav_items}                <a href=\"/catalog.html\">Catálogo</a>\n"
+    fi
+    if is_section_enabled "about"; then
+        nav_items="${nav_items}                <a href=\"/about.html\">Acerca de</a>\n"
+    fi
+    if is_section_enabled "contributing"; then
+        nav_items="${nav_items}                <a href=\"/contribuir.html\">Contribuir</a>\n"
+    fi
+    if is_external_site_enabled; then
+        local ext_url ext_title ext_newtab
+        ext_url=$(read_external_site "url")
+        ext_title=$(read_external_site "title")
+        ext_newtab=$(read_external_site "newTab")
+        if [ "$ext_newtab" = "true" ]; then
+            nav_items="${nav_items}                <a href=\"${ext_url}\" target=\"_blank\" class=\"btn-nav-external\">${ext_title}</a>\n"
+        else
+            nav_items="${nav_items}                <a href=\"${ext_url}\" class=\"btn-nav-external\">${ext_title}</a>\n"
+        fi
+    fi
+    
+    cat << EOF
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24">
+					<path
+						d="M 11.105573,2.4472136 2.8944272,6.5527864 a 0.5,0.5 90 0 0 0,0.8944272 l 8.2111458,4.1055724 a 2,2 0 0 0 1.788854,0 l 8.211146,-4.1055724 a 0.5,0.5 90 0 0 0,-0.8944272 L 12.894427,2.4472136 a 2,2 0 0 0 -1.788854,0 z M 2.8944272,17.447214 11.105573,21.552786 a 2,2 0 0 0 1.788854,0 l 8.211146,-4.105572 a 0.5,0.5 90 0 0 0,-0.894428 l -8.211146,-4.105572 a 2,2 0 0 0 -1.788854,0 l -8.2111458,4.105572 a 0.5,0.5 90 0 0 0,0.894428 z m 0,-5 8.2111458,4.105572 a 2,2 0 0 0 1.788854,0 l 8.211146,-4.105572 a 0.5,0.5 90 0 0 0,-0.894428 L 12.894427,7.4472136 a 2,2 0 0 0 -1.788854,0 L 2.8944272,11.552786 a 0.5,0.5 90 0 0 0,0.894428 z"
+					/>
+				</svg>
+                <span class="logo-text">${site_name}</span>
+            </a>
+            <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
+                <svg viewBox="0 0 24 24">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+            <nav class="nav" id="nav-menu">
+$(echo -e "$nav_items")            </nav>
+            <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+        </div>
+    </header>
+EOF
+}
+
 # Generar página principal (index.html)
 generate_index() {
     log_info "Generando página principal..."
@@ -2635,32 +2698,6 @@ with open('${CONFIG_JSON}', 'r') as f:
 cat = config.get('catalog', {}).get('booksPerPage', {})
 print(cat.get('desktop', 8), cat.get('tablet', 6), cat.get('mobile', 4))
 ")"
-    
-    # Construir navegación según secciones habilitadas
-    local nav_items=""
-    if is_section_enabled "home"; then
-        nav_items="${nav_items}                <a href=\"/\">Inicio</a>\n"
-    fi
-    if is_section_enabled "catalog"; then
-        nav_items="${nav_items}                <a href=\"/catalog.html\">Catálogo</a>\n"
-    fi
-    if is_section_enabled "about"; then
-        nav_items="${nav_items}                <a href=\"/about.html\">Acerca de</a>\n"
-    fi
-    if is_section_enabled "contributing"; then
-        nav_items="${nav_items}                <a href=\"/contribuir.html\">Contribuir</a>\n"
-    fi
-    if is_external_site_enabled; then
-        local ext_url ext_title ext_newtab
-        ext_url=$(read_external_site "url")
-        ext_title=$(read_external_site "title")
-        ext_newtab=$(read_external_site "newTab")
-        if [ "$ext_newtab" = "true" ]; then
-            nav_items="${nav_items}                <a href=\"${ext_url}\" target=\"_blank\" class=\"btn-nav-external\">${ext_title}</a>\n"
-        else
-            nav_items="${nav_items}                <a href=\"${ext_url}\" class=\"btn-nav-external\">${ext_title}</a>\n"
-        fi
-    fi
     
     # Construir enlaces del footer según secciones habilitadas
     local footer_links=""
@@ -2693,30 +2730,12 @@ print(cat.get('desktop', 8), cat.get('tablet', 6), cat.get('mobile', 4))
     <title>${site_name} | ${site_title}</title>
     <link rel="stylesheet" href="/css/styles.css?v=${BUILD_HASH}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="icon" type="image/svg+xml"  href="img/logo.svg">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <a href="/" class="logo">
-                <svg class="logo-icon" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
-                <span class="logo-text">${site_name}</span>
-            </a>
-            <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
-                <svg viewBox="0 0 24 24">
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <line x1="3" y1="12" x2="21" y2="12"/>
-                    <line x1="3" y1="18" x2="21" y2="18"/>
-                </svg>
-            </button>
-            <nav class="nav" id="nav-menu">
-$(echo -e "$nav_items")            </nav>
-            <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
-        </div>
-    </header>
+$(generate_header)
 
     <main class="container">
         <section class="hero">
@@ -2995,32 +3014,6 @@ for obj in objectives:
     print('<li>' + obj + '</li>')
 ")
     
-    # Construir navegación
-    local nav_items=""
-    if is_section_enabled "home"; then
-        nav_items="${nav_items}                <a href=\"/\">Inicio</a>\n"
-    fi
-    if is_section_enabled "catalog"; then
-        nav_items="${nav_items}                <a href=\"/catalog.html\">Catálogo</a>\n"
-    fi
-    if is_section_enabled "about"; then
-        nav_items="${nav_items}                <a href=\"/about.html\">Acerca de</a>\n"
-    fi
-    if is_section_enabled "contributing"; then
-        nav_items="${nav_items}                <a href=\"/contribuir.html\">Contribuir</a>\n"
-    fi
-    if is_external_site_enabled; then
-        local ext_url ext_title ext_newtab
-        ext_url=$(read_external_site "url")
-        ext_title=$(read_external_site "title")
-        ext_newtab=$(read_external_site "newTab")
-        if [ "$ext_newtab" = "true" ]; then
-            nav_items="${nav_items}                <a href=\"${ext_url}\" target=\"_blank\" class=\"btn-nav-external\">${ext_title}</a>\n"
-        else
-            nav_items="${nav_items}                <a href=\"${ext_url}\" class=\"btn-nav-external\">${ext_title}</a>\n"
-        fi
-    fi
-    
     # Construir enlaces del footer
     local footer_links=""
     if is_section_enabled "home"; then
@@ -3048,29 +3041,11 @@ for obj in objectives:
     <link rel="stylesheet" href="/css/styles.css?v=${BUILD_HASH}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="icon" href="img/logo.svg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <a href="/" class="logo">
-                <svg class="logo-icon" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
-                <span class="logo-text">${site_name}</span>
-            </a>
-            <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
-                <svg viewBox="0 0 24 24">
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <line x1="3" y1="12" x2="21" y2="12"/>
-                    <line x1="3" y1="18" x2="21" y2="18"/>
-                </svg>
-            </button>
-            <nav class="nav" id="nav-menu">
-$(echo -e "$nav_items")            </nav>
-            <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
-        </div>
-    </header>
+$(generate_header)
 
     <main class="container">
         <section class="hero">
@@ -3143,32 +3118,6 @@ generate_contributing() {
     site_email=$(read_config "site.email")
     local footer_copyright
     footer_copyright=$(read_config "footer.copyright")
-    
-    # Construir navegación
-    local nav_items=""
-    if is_section_enabled "home"; then
-        nav_items="${nav_items}                <a href=\"/\">Inicio</a>\n"
-    fi
-    if is_section_enabled "catalog"; then
-        nav_items="${nav_items}                <a href=\"/catalog.html\">Catálogo</a>\n"
-    fi
-    if is_section_enabled "about"; then
-        nav_items="${nav_items}                <a href=\"/about.html\">Acerca de</a>\n"
-    fi
-    if is_section_enabled "contributing"; then
-        nav_items="${nav_items}                <a href=\"/contribuir.html\">Contribuir</a>\n"
-    fi
-    if is_external_site_enabled; then
-        local ext_url ext_title ext_newtab
-        ext_url=$(read_external_site "url")
-        ext_title=$(read_external_site "title")
-        ext_newtab=$(read_external_site "newTab")
-        if [ "$ext_newtab" = "true" ]; then
-            nav_items="${nav_items}                <a href=\"${ext_url}\" target=\"_blank\" class=\"btn-nav-external\">${ext_title}</a>\n"
-        else
-            nav_items="${nav_items}                <a href=\"${ext_url}\" class=\"btn-nav-external\">${ext_title}</a>\n"
-        fi
-    fi
     
     # Construir enlaces del footer
     local footer_links=""
@@ -3362,26 +3311,7 @@ PYEOF
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <div class="header-content">
-            <a href="/" class="logo">
-                <svg class="logo-icon" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
-                <span class="logo-text">${site_name}</span>
-            </a>
-            <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
-                <svg viewBox="0 0 24 24">
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <line x1="3" y1="12" x2="21" y2="12"/>
-                    <line x1="3" y1="18" x2="21" y2="18"/>
-                </svg>
-            </button>
-            <nav class="nav" id="nav-menu">
-$(echo -e "$nav_items")            </nav>
-            <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
-        </div>
-    </header>
+$(generate_header)
 
     <main class="container">
         <section class="hero">
