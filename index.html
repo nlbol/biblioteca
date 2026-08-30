@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Biblioteca digital del Núcleo Linux UAGRM. Libros gratuitos sobre informática, GNU/Linux, seguridad informática, programación y tecnología.">
+    <meta name="domain" content="https://biblioteca.nluagrm.org">
+    <link rel="canonical" href="https://biblioteca.nluagrm.org/">
+    <meta property="og:title" content="Biblioteca | Biblioteca Digital">
+    <meta property="og:description" content="Biblioteca digital del Núcleo Linux UAGRM. Libros gratuitos sobre informática, GNU/Linux, seguridad informática, programación y tecnología.">
+    <meta property="og:url" content="https://biblioteca.nluagrm.org/">
+    <meta property="og:type" content="website">
+    <title>Biblioteca | Biblioteca Digital</title>
+    <link rel="stylesheet" href="/css/styles.css?v=1788095445">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="icon" type="image/svg+xml"  href="img/logo.svg">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24">
+					<path
+						d="M 11.105573,2.4472136 2.8944272,6.5527864 a 0.5,0.5 90 0 0 0,0.8944272 l 8.2111458,4.1055724 a 2,2 0 0 0 1.788854,0 l 8.211146,-4.1055724 a 0.5,0.5 90 0 0 0,-0.8944272 L 12.894427,2.4472136 a 2,2 0 0 0 -1.788854,0 z M 2.8944272,17.447214 11.105573,21.552786 a 2,2 0 0 0 1.788854,0 l 8.211146,-4.105572 a 0.5,0.5 90 0 0 0,-0.894428 l -8.211146,-4.105572 a 2,2 0 0 0 -1.788854,0 l -8.2111458,4.105572 a 0.5,0.5 90 0 0 0,0.894428 z m 0,-5 8.2111458,4.105572 a 2,2 0 0 0 1.788854,0 l 8.211146,-4.105572 a 0.5,0.5 90 0 0 0,-0.894428 L 12.894427,7.4472136 a 2,2 0 0 0 -1.788854,0 L 2.8944272,11.552786 a 0.5,0.5 90 0 0 0,0.894428 z"
+					/>
+				</svg>
+                <span class="logo-text">Biblioteca</span>
+            </a>
+            <button class="menu-toggle" aria-label="Abrir menú" onclick="toggleMenu()">
+                <svg viewBox="0 0 24 24">
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <line x1="3" y1="12" x2="21" y2="12"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                </svg>
+            </button>
+            <nav class="nav" id="nav-menu">
+                <a href="/">Inicio</a>
+                <a href="/about.html">Acerca de</a>
+                <a href="/contribuir.html">Contribuir</a>
+                <a href="https://nluagrm.org" target="_blank" class="btn-nav-external">Núcleo Linux UAGRM</a>            </nav>
+            <div class="nav-overlay" id="nav-overlay" onclick="closeMenu()"></div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Biblioteca Digital</h1>
+            <p>Recursos de Informática, GNU/Linux y Software Libre</p>
+        </section>
+
+        <section class="search-container">
+            <div class="search-box">
+                <svg class="search-icon" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="M21 21l-4.35-4.35"/>
+                </svg>
+                <input type="search" 
+                       id="search-input" 
+                       class="search-input" 
+                       placeholder="Buscar por título, categoría o etiquetas..."
+                       aria-label="Buscar libros">
+            </div>
+        </section>
+
+        <div class="filter-bar">
+            <button class="filter-toggle-btn" onclick="toggleFilters()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                </svg>
+                Filtros
+                <span class="filter-count-badge" id="filter-count"></span>
+            </button>
+            <button class="filter-clear-btn" id="filter-clear" onclick="clearAllFilters()">
+                Limpiar filtros
+            </button>
+        </div>
+
+        <div class="filter-panel" id="filter-panel">
+            <div class="filter-group">
+                <h4>Categorías</h4>
+                <div class="filter-chips" id="filter-categories"><button class="filter-chip" data-category="GNU/Linux" onclick="toggleCategory('GNU/Linux')">GNU/Linux</button>
+<button class="filter-chip" data-category="Ofimática" onclick="toggleCategory('Ofimática')">Ofimática</button>
+<button class="filter-chip" data-category="Programacion" onclick="toggleCategory('Programacion')">Programacion</button>
+<button class="filter-chip" data-category="Redes" onclick="toggleCategory('Redes')">Redes</button>
+<button class="filter-chip" data-category="Robótica" onclick="toggleCategory('Robótica')">Robótica</button>
+<button class="filter-chip" data-category="Seguridad Informática" onclick="toggleCategory('Seguridad Informática')">Seguridad Informática</button>
+<button class="filter-chip" data-category="Software Libre" onclick="toggleCategory('Software Libre')">Software Libre</button></div>
+            </div>
+            <div class="filter-group">
+                <h4>Etiquetas</h4>
+                <div class="filter-chips" id="filter-tags"><button class="filter-chip" data-tag="agentes IA" onclick="toggleTag('agentes IA')">agentes IA</button>
+<button class="filter-chip" data-tag="ansible" onclick="toggleTag('ansible')">ansible</button>
+<button class="filter-chip" data-tag="antenas" onclick="toggleTag('antenas')">antenas</button>
+<button class="filter-chip" data-tag="apache" onclick="toggleTag('apache')">apache</button>
+<button class="filter-chip" data-tag="apache ant" onclick="toggleTag('apache ant')">apache ant</button>
+<button class="filter-chip" data-tag="arduino" onclick="toggleTag('arduino')">arduino</button>
+<button class="filter-chip" data-tag="bases de datos documentales" onclick="toggleTag('bases de datos documentales')">bases de datos documentales</button>
+<button class="filter-chip" data-tag="bases de datos no relacionales" onclick="toggleTag('bases de datos no relacionales')">bases de datos no relacionales</button>
+<button class="filter-chip" data-tag="bases de datos relacionales" onclick="toggleTag('bases de datos relacionales')">bases de datos relacionales</button>
+<button class="filter-chip" data-tag="bash" onclick="toggleTag('bash')">bash</button>
+<button class="filter-chip" data-tag="blender" onclick="toggleTag('blender')">blender</button>
+<button class="filter-chip" data-tag="bolivia" onclick="toggleTag('bolivia')">bolivia</button>
+<button class="filter-chip" data-tag="c#" onclick="toggleTag('c#')">c#</button>
+<button class="filter-chip" data-tag="c++" onclick="toggleTag('c++')">c++</button>
+<button class="filter-chip" data-tag="css" onclick="toggleTag('css')">css</button>
+<button class="filter-chip" data-tag="cultura libre" onclick="toggleTag('cultura libre')">cultura libre</button>
+<button class="filter-chip" data-tag="debian" onclick="toggleTag('debian')">debian</button>
+<button class="filter-chip" data-tag="desarrollo web" onclick="toggleTag('desarrollo web')">desarrollo web</button>
+<button class="filter-chip" data-tag="duplicati" onclick="toggleTag('duplicati')">duplicati</button>
+<button class="filter-chip" data-tag="educacion" onclick="toggleTag('educacion')">educacion</button>
+<button class="filter-chip" data-tag="empresas de software libre" onclick="toggleTag('empresas de software libre')">empresas de software libre</button>
+<button class="filter-chip" data-tag="filosofia" onclick="toggleTag('filosofia')">filosofia</button>
+<button class="filter-chip" data-tag="flask" onclick="toggleTag('flask')">flask</button>
+<button class="filter-chip" data-tag="flisol" onclick="toggleTag('flisol')">flisol</button>
+<button class="filter-chip" data-tag="gnupg" onclick="toggleTag('gnupg')">gnupg</button>
+<button class="filter-chip" data-tag="hacking" onclick="toggleTag('hacking')">hacking</button>
+<button class="filter-chip" data-tag="html5" onclick="toggleTag('html5')">html5</button>
+<button class="filter-chip" data-tag="j2se" onclick="toggleTag('j2se')">j2se</button>
+<button class="filter-chip" data-tag="java" onclick="toggleTag('java')">java</button>
+<button class="filter-chip" data-tag="jmeter" onclick="toggleTag('jmeter')">jmeter</button>
+<button class="filter-chip" data-tag="lawrence lessing" onclick="toggleTag('lawrence lessing')">lawrence lessing</button>
+<button class="filter-chip" data-tag="libreoffice" onclick="toggleTag('libreoffice')">libreoffice</button>
+<button class="filter-chip" data-tag="librepcb" onclick="toggleTag('librepcb')">librepcb</button>
+<button class="filter-chip" data-tag="libreplan" onclick="toggleTag('libreplan')">libreplan</button>
+<button class="filter-chip" data-tag="linux" onclick="toggleTag('linux')">linux</button>
+<button class="filter-chip" data-tag="llm" onclick="toggleTag('llm')">llm</button>
+<button class="filter-chip" data-tag="lxc" onclick="toggleTag('lxc')">lxc</button>
+<button class="filter-chip" data-tag="lxd" onclick="toggleTag('lxd')">lxd</button>
+<button class="filter-chip" data-tag="miubuntu" onclick="toggleTag('miubuntu')">miubuntu</button>
+<button class="filter-chip" data-tag="modelo economicos del software libre" onclick="toggleTag('modelo economicos del software libre')">modelo economicos del software libre</button>
+<button class="filter-chip" data-tag="mono" onclick="toggleTag('mono')">mono</button>
+<button class="filter-chip" data-tag="movil" onclick="toggleTag('movil')">movil</button>
+<button class="filter-chip" data-tag="ncurses" onclick="toggleTag('ncurses')">ncurses</button>
+<button class="filter-chip" data-tag="neth server" onclick="toggleTag('neth server')">neth server</button>
+<button class="filter-chip" data-tag="nodejs" onclick="toggleTag('nodejs')">nodejs</button>
+<button class="filter-chip" data-tag="ntp" onclick="toggleTag('ntp')">ntp</button>
+<button class="filter-chip" data-tag="ocs inventory" onclick="toggleTag('ocs inventory')">ocs inventory</button>
+<button class="filter-chip" data-tag="octave" onclick="toggleTag('octave')">octave</button>
+<button class="filter-chip" data-tag="ofimatica" onclick="toggleTag('ofimatica')">ofimatica</button>
+<button class="filter-chip" data-tag="openoffice" onclick="toggleTag('openoffice')">openoffice</button>
+<button class="filter-chip" data-tag="openssh" onclick="toggleTag('openssh')">openssh</button>
+<button class="filter-chip" data-tag="openssl" onclick="toggleTag('openssl')">openssl</button>
+<button class="filter-chip" data-tag="owasp" onclick="toggleTag('owasp')">owasp</button>
+<button class="filter-chip" data-tag="pandora" onclick="toggleTag('pandora')">pandora</button>
+<button class="filter-chip" data-tag="php" onclick="toggleTag('php')">php</button>
+<button class="filter-chip" data-tag="play framework" onclick="toggleTag('play framework')">play framework</button>
+<button class="filter-chip" data-tag="postgresql" onclick="toggleTag('postgresql')">postgresql</button>
+<button class="filter-chip" data-tag="pseint" onclick="toggleTag('pseint')">pseint</button>
+<button class="filter-chip" data-tag="python" onclick="toggleTag('python')">python</button>
+<button class="filter-chip" data-tag="rabbitmq" onclick="toggleTag('rabbitmq')">rabbitmq</button>
+<button class="filter-chip" data-tag="redes" onclick="toggleTag('redes')">redes</button>
+<button class="filter-chip" data-tag="redis" onclick="toggleTag('redis')">redis</button>
+<button class="filter-chip" data-tag="revista" onclick="toggleTag('revista')">revista</button>
+<button class="filter-chip" data-tag="ria" onclick="toggleTag('ria')">ria</button>
+<button class="filter-chip" data-tag="richard stallman" onclick="toggleTag('richard stallman')">richard stallman</button>
+<button class="filter-chip" data-tag="scilab" onclick="toggleTag('scilab')">scilab</button>
+<button class="filter-chip" data-tag="seguridad" onclick="toggleTag('seguridad')">seguridad</button>
+<button class="filter-chip" data-tag="simphony" onclick="toggleTag('simphony')">simphony</button>
+<button class="filter-chip" data-tag="snmp" onclick="toggleTag('snmp')">snmp</button>
+<button class="filter-chip" data-tag="soberania tecnologica" onclick="toggleTag('soberania tecnologica')">soberania tecnologica</button>
+<button class="filter-chip" data-tag="software libre" onclick="toggleTag('software libre')">software libre</button>
+<button class="filter-chip" data-tag="sql" onclick="toggleTag('sql')">sql</button>
+<button class="filter-chip" data-tag="sqlite" onclick="toggleTag('sqlite')">sqlite</button>
+<button class="filter-chip" data-tag="tcp-ip" onclick="toggleTag('tcp-ip')">tcp-ip</button>
+<button class="filter-chip" data-tag="terminal" onclick="toggleTag('terminal')">terminal</button>
+<button class="filter-chip" data-tag="tic" onclick="toggleTag('tic')">tic</button>
+<button class="filter-chip" data-tag="uml" onclick="toggleTag('uml')">uml</button>
+<button class="filter-chip" data-tag="vsftpd" onclick="toggleTag('vsftpd')">vsftpd</button>
+<button class="filter-chip" data-tag="vulnerabilidades" onclick="toggleTag('vulnerabilidades')">vulnerabilidades</button>
+<button class="filter-chip" data-tag="web" onclick="toggleTag('web')">web</button>
+<button class="filter-chip" data-tag="webmin" onclick="toggleTag('webmin')">webmin</button>
+<button class="filter-chip" data-tag="wifi" onclick="toggleTag('wifi')">wifi</button>
+<button class="filter-chip" data-tag="yatiña iyambae" onclick="toggleTag('yatiña iyambae')">yatiña iyambae</button>
+<button class="filter-chip" data-tag="zimbra" onclick="toggleTag('zimbra')">zimbra</button></div>
+            </div>
+        </div>
+
+        <section id="books-container" class="books-grid">
+<article class="book-card" data-title="Manual Practico de Linux Con Ejercicios" data-category="GNU/Linux" data-tags="linux,debian,terminal">
+            <img src="/img/covers/manual-practico-de-linux-con-ejercicios.webp" alt="Portada de Manual Practico de Linux Con Ejercicios" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">GNU/Linux</span>
+                <h3 class="book-title">Manual Practico de Linux Con Ejercicios</h3>
+                <div class="book-meta">
+                    <span>56 páginas</span>
+                    <span>2009</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/manual-practico-de-linux-con-ejercicios.pdf', 'Manual Practico de Linux Con Ejercicios')">Ver Libro</button>
+                    <a href="/pdf/manual-practico-de-linux-con-ejercicios.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Debian Hackers Elementals" data-category="Seguridad Informática" data-tags="seguridad,hacking,redes,debian">
+            <img src="/img/covers/debian-hackers-elementals.webp" alt="Portada de Debian Hackers Elementals" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Seguridad Informática</span>
+                <h3 class="book-title">Debian Hackers Elementals</h3>
+                <div class="book-meta">
+                    <span>56 páginas</span>
+                    <span>2014</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/debian-hackers-elementals.pdf', 'Debian Hackers Elementals')">Ver Libro</button>
+                    <a href="/pdf/debian-hackers-elementals.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Taller de seguridad inalambrica" data-category="Seguridad Informática" data-tags="redes,seguridad,hacking">
+            <img src="/img/covers/taller-de-seguridad-inalambrica.webp" alt="Portada de Taller de seguridad inalambrica" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Seguridad Informática</span>
+                <h3 class="book-title">Taller de seguridad inalambrica</h3>
+                <div class="book-meta">
+                    <span>260 páginas</span>
+                    <span>2000</span>
+                    <span>CC-BY-NC-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/taller-de-seguridad-inalambrica.pdf', 'Taller de seguridad inalambrica')">Ver Libro</button>
+                    <a href="/pdf/taller-de-seguridad-inalambrica.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Wireshark User's Guide" data-category="Redes" data-tags="redes,tcp-ip,seguridad">
+            <img src="/img/covers/wireshark-users-guide.webp" alt="Portada de Wireshark User's Guide" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Redes</span>
+                <h3 class="book-title">Wireshark User's Guide</h3>
+                <div class="book-meta">
+                    <span>388 páginas</span>
+                    <span>2026</span>
+                    <span>GPL</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/wireshark-users-guide.pdf', 'Wireshark User\'s Guide')">Ver Libro</button>
+                    <a href="/pdf/wireshark-users-guide.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="The Penetration Testing Execution Standard Documentation" data-category="Seguridad Informática" data-tags="hacking,seguridad">
+            <img src="/img/covers/the-penetration-testing-execution-standard-documentation.webp" alt="Portada de The Penetration Testing Execution Standard Documentation" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Seguridad Informática</span>
+                <h3 class="book-title">The Penetration Testing Execution Standard Documentation</h3>
+                <div class="book-meta">
+                    <span>237 páginas</span>
+                    <span>2022</span>
+                    <span>GPL-3.0</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/pentest-standard-readthedocs-io-en-latest.pdf', 'The Penetration Testing Execution Standard Documentation')">Ver Libro</button>
+                    <a href="/pdf/pentest-standard-readthedocs-io-en-latest.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="LPI Linux Essentials" data-category="GNU/Linux" data-tags="linux,terminal">
+            <img src="/img/covers/lpi-linux-essentials.webp" alt="Portada de LPI Linux Essentials" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">GNU/Linux</span>
+                <h3 class="book-title">LPI Linux Essentials</h3>
+                <div class="book-meta">
+                    <span>448 páginas</span>
+                    <span>2026</span>
+                    <span>CC BY-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/lpi-linux-essentials.pdf', 'LPI Linux Essentials')">Ver Libro</button>
+                    <a href="/pdf/lpi-linux-essentials.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="The Debian Administrator’s Handbook" data-category="GNU/Linux" data-tags="linux,terminal,debian">
+            <img src="/img/covers/debian-handbook.webp" alt="Portada de The Debian Administrator’s Handbook" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">GNU/Linux</span>
+                <h3 class="book-title">The Debian Administrator’s Handbook</h3>
+                <div class="book-meta">
+                    <span>542 páginas</span>
+                    <span>2026</span>
+                    <span>CC BY-SA GPL</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/debian-handbook.pdf', 'The Debian Administrator’s Handbook')">Ver Libro</button>
+                    <a href="/pdf/debian-handbook.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Kali Linux Revealed" data-category="Seguridad Informática" data-tags="linux,terminal,debian,seguridad,hacking">
+            <img src="/img/covers/kali-linux-revealed.webp" alt="Portada de Kali Linux Revealed" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Seguridad Informática</span>
+                <h3 class="book-title">Kali Linux Revealed</h3>
+                <div class="book-meta">
+                    <span>346 páginas</span>
+                    <span>2026</span>
+                    <span>CC BY-SA GPL</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/kali-linux-revealed.pdf', 'Kali Linux Revealed')">Ver Libro</button>
+                    <a href="/pdf/kali-linux-revealed.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Arduino Bolivia 01" data-category="Robótica" data-tags="bolivia,arduino,revista">
+            <img src="/img/covers/arduino-bolivia-01.webp" alt="Portada de Arduino Bolivia 01" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Robótica</span>
+                <h3 class="book-title">Arduino Bolivia 01</h3>
+                <div class="book-meta">
+                    <span>26 páginas</span>
+                    <span>2018</span>
+                    <span>CC-BY-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/arduino-bolivia-01.pdf', 'Arduino Bolivia 01')">Ver Libro</button>
+                    <a href="/pdf/arduino-bolivia-01.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Arduino Bolivia 02" data-category="Robótica" data-tags="bolivia,arduino,revista">
+            <img src="/img/covers/arduino-bolivia-02.webp" alt="Portada de Arduino Bolivia 02" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Robótica</span>
+                <h3 class="book-title">Arduino Bolivia 02</h3>
+                <div class="book-meta">
+                    <span>40 páginas</span>
+                    <span>2018</span>
+                    <span>CC-BY-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/arduino-bolivia-02.pdf', 'Arduino Bolivia 02')">Ver Libro</button>
+                    <a href="/pdf/arduino-bolivia-02.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Arduino Bolivia 03" data-category="Robótica" data-tags="bolivia,arduino,revista">
+            <img src="/img/covers/arduino-bolivia-03.webp" alt="Portada de Arduino Bolivia 03" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Robótica</span>
+                <h3 class="book-title">Arduino Bolivia 03</h3>
+                <div class="book-meta">
+                    <span>34 páginas</span>
+                    <span>2018</span>
+                    <span>CC-BY-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/arduino-bolivia-03.pdf', 'Arduino Bolivia 03')">Ver Libro</button>
+                    <a href="/pdf/arduino-bolivia-03.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Arduino Bolivia 04" data-category="Robótica" data-tags="bolivia,arduino,revista">
+            <img src="/img/covers/arduino-bolivia-04.webp" alt="Portada de Arduino Bolivia 04" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Robótica</span>
+                <h3 class="book-title">Arduino Bolivia 04</h3>
+                <div class="book-meta">
+                    <span>32 páginas</span>
+                    <span>2018</span>
+                    <span>CC-BY-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/arduino-bolivia-04.pdf', 'Arduino Bolivia 04')">Ver Libro</button>
+                    <a href="/pdf/arduino-bolivia-04.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Arduino Bolivia 05" data-category="Robótica" data-tags="bolivia,arduino,revista">
+            <img src="/img/covers/arduino-bolivia-05.webp" alt="Portada de Arduino Bolivia 05" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Robótica</span>
+                <h3 class="book-title">Arduino Bolivia 05</h3>
+                <div class="book-meta">
+                    <span>31 páginas</span>
+                    <span>2019</span>
+                    <span>CC-BY-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/arduino-bolivia-05.pdf', 'Arduino Bolivia 05')">Ver Libro</button>
+                    <a href="/pdf/arduino-bolivia-05.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Arduino Bolivia 06" data-category="Robótica" data-tags="bolivia,arduino,revista">
+            <img src="/img/covers/arduino-bolivia-06.webp" alt="Portada de Arduino Bolivia 06" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Robótica</span>
+                <h3 class="book-title">Arduino Bolivia 06</h3>
+                <div class="book-meta">
+                    <span>22 páginas</span>
+                    <span>2019</span>
+                    <span>CC-BY-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/arduino-bolivia-06.pdf', 'Arduino Bolivia 06')">Ver Libro</button>
+                    <a href="/pdf/arduino-bolivia-06.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Arduino Bolivia 07" data-category="Robótica" data-tags="bolivia,arduino,revista">
+            <img src="/img/covers/arduino-bolivia-07.webp" alt="Portada de Arduino Bolivia 07" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Robótica</span>
+                <h3 class="book-title">Arduino Bolivia 07</h3>
+                <div class="book-meta">
+                    <span>27 páginas</span>
+                    <span>2019</span>
+                    <span>CC-BY-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/arduino-bolivia-07.pdf', 'Arduino Bolivia 07')">Ver Libro</button>
+                    <a href="/pdf/arduino-bolivia-07.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 01" data-category="Software Libre" data-tags="bolivia,flisol,java,simphony,revista">
+            <img src="/img/covers/atix-01.webp" alt="Portada de ATIX 01" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 01</h3>
+                <div class="book-meta">
+                    <span>42 páginas</span>
+                    <span>2008</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-01.pdf', 'ATIX 01')">Ver Libro</button>
+                    <a href="/pdf/atix-01.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 02" data-category="Software Libre" data-tags="bolivia,openssh,vsftpd,revista">
+            <img src="/img/covers/atix-02.webp" alt="Portada de ATIX 02" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 02</h3>
+                <div class="book-meta">
+                    <span>64 páginas</span>
+                    <span>2008</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-02.pdf', 'ATIX 02')">Ver Libro</button>
+                    <a href="/pdf/atix-02.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 03" data-category="Software Libre" data-tags="bolivia,apache,blender,revista">
+            <img src="/img/covers/atix-03.webp" alt="Portada de ATIX 03" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 03</h3>
+                <div class="book-meta">
+                    <span>62 páginas</span>
+                    <span>2008</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-03.pdf', 'ATIX 03')">Ver Libro</button>
+                    <a href="/pdf/atix-03.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 04" data-category="Software Libre" data-tags="bolivia,postgresql,gnupg,revista">
+            <img src="/img/covers/atix-04.webp" alt="Portada de ATIX 04" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 04</h3>
+                <div class="book-meta">
+                    <span>73 páginas</span>
+                    <span>2008</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-04.pdf', 'ATIX 04')">Ver Libro</button>
+                    <a href="/pdf/atix-04.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 05" data-category="Software Libre" data-tags="bolivia,c++,revista">
+            <img src="/img/covers/atix-05.webp" alt="Portada de ATIX 05" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 05</h3>
+                <div class="book-meta">
+                    <span>58 páginas</span>
+                    <span>2008</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-05.pdf', 'ATIX 05')">Ver Libro</button>
+                    <a href="/pdf/atix-05.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 06" data-category="Software Libre" data-tags="bolivia,c++,revista">
+            <img src="/img/covers/atix-06.webp" alt="Portada de ATIX 06" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 06</h3>
+                <div class="book-meta">
+                    <span>60 páginas</span>
+                    <span>2008</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-06.pdf', 'ATIX 06')">Ver Libro</button>
+                    <a href="/pdf/atix-06.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 07" data-category="Software Libre" data-tags="bolivia,c++,openssl,revista">
+            <img src="/img/covers/atix-07.webp" alt="Portada de ATIX 07" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 07</h3>
+                <div class="book-meta">
+                    <span>73 páginas</span>
+                    <span>2009</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-07.pdf', 'ATIX 07')">Ver Libro</button>
+                    <a href="/pdf/atix-07.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 08" data-category="Software Libre" data-tags="bolivia,openssl,revista">
+            <img src="/img/covers/atix-08.webp" alt="Portada de ATIX 08" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 08</h3>
+                <div class="book-meta">
+                    <span>78 páginas</span>
+                    <span>2009</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-08.pdf', 'ATIX 08')">Ver Libro</button>
+                    <a href="/pdf/atix-08.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 09" data-category="Software Libre" data-tags="bolivia,ncurses,snmp,revista">
+            <img src="/img/covers/atix-09.webp" alt="Portada de ATIX 09" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 09</h3>
+                <div class="book-meta">
+                    <span>70 páginas</span>
+                    <span>2009</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-09.pdf', 'ATIX 09')">Ver Libro</button>
+                    <a href="/pdf/atix-09.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 10" data-category="Software Libre" data-tags="bolivia,octave,debian,revista">
+            <img src="/img/covers/atix-10.webp" alt="Portada de ATIX 10" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 10</h3>
+                <div class="book-meta">
+                    <span>72 páginas</span>
+                    <span>2009</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-10.pdf', 'ATIX 10')">Ver Libro</button>
+                    <a href="/pdf/atix-10.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 11" data-category="Software Libre" data-tags="bolivia,mono,revista">
+            <img src="/img/covers/atix-11.webp" alt="Portada de ATIX 11" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 11</h3>
+                <div class="book-meta">
+                    <span>70 páginas</span>
+                    <span>2009</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-11.pdf', 'ATIX 11')">Ver Libro</button>
+                    <a href="/pdf/atix-11.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 12" data-category="Software Libre" data-tags="bolivia,mono,webmin,revista">
+            <img src="/img/covers/atix-12.webp" alt="Portada de ATIX 12" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 12</h3>
+                <div class="book-meta">
+                    <span>68 páginas</span>
+                    <span>2009</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-12.pdf', 'ATIX 12')">Ver Libro</button>
+                    <a href="/pdf/atix-12.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 13" data-category="Software Libre" data-tags="bolivia,mono,sqlite,revista">
+            <img src="/img/covers/atix-13.webp" alt="Portada de ATIX 13" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 13</h3>
+                <div class="book-meta">
+                    <span>55 páginas</span>
+                    <span>2009</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-13.pdf', 'ATIX 13')">Ver Libro</button>
+                    <a href="/pdf/atix-13.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 14" data-category="Software Libre" data-tags="bolivia,mono,revista">
+            <img src="/img/covers/atix-14.webp" alt="Portada de ATIX 14" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 14</h3>
+                <div class="book-meta">
+                    <span>51 páginas</span>
+                    <span>2009</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-14.pdf', 'ATIX 14')">Ver Libro</button>
+                    <a href="/pdf/atix-14.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 15" data-category="Software Libre" data-tags="c#,mono,sqlite,revista">
+            <img src="/img/covers/atix-15.webp" alt="Portada de ATIX 15" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 15</h3>
+                <div class="book-meta">
+                    <span>49 páginas</span>
+                    <span>2009</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-15.pdf', 'ATIX 15')">Ver Libro</button>
+                    <a href="/pdf/atix-15.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 16" data-category="Software Libre" data-tags="bolivia,jmeter,bases de datos documentales,pandora,revista">
+            <img src="/img/covers/atix-16.webp" alt="Portada de ATIX 16" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 16</h3>
+                <div class="book-meta">
+                    <span>36 páginas</span>
+                    <span>2010</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-16.pdf', 'ATIX 16')">Ver Libro</button>
+                    <a href="/pdf/atix-16.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 17" data-category="Software Libre" data-tags="bolivia,uml,mono,apache,revista">
+            <img src="/img/covers/atix-17.webp" alt="Portada de ATIX 17" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 17</h3>
+                <div class="book-meta">
+                    <span>55 páginas</span>
+                    <span>2010</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-17.pdf', 'ATIX 17')">Ver Libro</button>
+                    <a href="/pdf/atix-17.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 18" data-category="Software Libre" data-tags="bolivia,ria,mono,apache ant,revista">
+            <img src="/img/covers/atix-18.webp" alt="Portada de ATIX 18" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 18</h3>
+                <div class="book-meta">
+                    <span>55 páginas</span>
+                    <span>2010</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-18.pdf', 'ATIX 18')">Ver Libro</button>
+                    <a href="/pdf/atix-18.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 19" data-category="Software Libre" data-tags="bolivia,html5,scilab,ntp,revista">
+            <img src="/img/covers/atix-19.webp" alt="Portada de ATIX 19" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 19</h3>
+                <div class="book-meta">
+                    <span>55 páginas</span>
+                    <span>2011</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-19.pdf', 'ATIX 19')">Ver Libro</button>
+                    <a href="/pdf/atix-19.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 20" data-category="Software Libre" data-tags="bolivia,play framework,postgresql,mono,revista">
+            <img src="/img/covers/atix-20.webp" alt="Portada de ATIX 20" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 20</h3>
+                <div class="book-meta">
+                    <span>68 páginas</span>
+                    <span>2013</span>
+                    <span>CC-BY-SA-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-20.pdf', 'ATIX 20')">Ver Libro</button>
+                    <a href="/pdf/atix-20.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 21" data-category="Software Libre" data-tags="bolivia,ria,play framework,postgresql,mono,bash,revista">
+            <img src="/img/covers/atix-21.webp" alt="Portada de ATIX 21" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 21</h3>
+                <div class="book-meta">
+                    <span>69 páginas</span>
+                    <span>2013</span>
+                    <span>CC-BY-SA-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-21.pdf', 'ATIX 21')">Ver Libro</button>
+                    <a href="/pdf/atix-21.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 22" data-category="Software Libre" data-tags="bolivia,play framework,ria,revista">
+            <img src="/img/covers/atix-22.webp" alt="Portada de ATIX 22" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 22</h3>
+                <div class="book-meta">
+                    <span>41 páginas</span>
+                    <span>2013</span>
+                    <span>CC-BY-SA-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-22.pdf', 'ATIX 22')">Ver Libro</button>
+                    <a href="/pdf/atix-22.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 23" data-category="Software Libre" data-tags="bolivia,nodejs,libreplan,ansible,python,revista">
+            <img src="/img/covers/atix-23.webp" alt="Portada de ATIX 23" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 23</h3>
+                <div class="book-meta">
+                    <span>46 páginas</span>
+                    <span>2018</span>
+                    <span>CC-BY-SA-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-23.pdf', 'ATIX 23')">Ver Libro</button>
+                    <a href="/pdf/atix-23.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 24" data-category="Software Libre" data-tags="bolivia,flask,arduino,rabbitmq,revista">
+            <img src="/img/covers/atix-24.webp" alt="Portada de ATIX 24" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 24</h3>
+                <div class="book-meta">
+                    <span>60 páginas</span>
+                    <span>2018</span>
+                    <span>CC-BY-SA-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-24.pdf', 'ATIX 24')">Ver Libro</button>
+                    <a href="/pdf/atix-24.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 25" data-category="Software Libre" data-tags="bolivia,arduino,openoffice,redis,revista">
+            <img src="/img/covers/atix-25.webp" alt="Portada de ATIX 25" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 25</h3>
+                <div class="book-meta">
+                    <span>58 páginas</span>
+                    <span>2018</span>
+                    <span>CC-BY-SA-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-25.pdf', 'ATIX 25')">Ver Libro</button>
+                    <a href="/pdf/atix-25.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 26" data-category="Software Libre" data-tags="bolivia,lxc,lxd,arduino,revista">
+            <img src="/img/covers/atix-26.webp" alt="Portada de ATIX 26" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 26</h3>
+                <div class="book-meta">
+                    <span>48 páginas</span>
+                    <span>2018</span>
+                    <span>CC-BY-SA-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-26.pdf', 'ATIX 26')">Ver Libro</button>
+                    <a href="/pdf/atix-26.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 27" data-category="Software Libre" data-tags="bolivia,arduino,lxc,lxd,ocs inventory,revista">
+            <img src="/img/covers/atix-27.webp" alt="Portada de ATIX 27" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 27</h3>
+                <div class="book-meta">
+                    <span>41 páginas</span>
+                    <span>2018</span>
+                    <span>CC-BY-SA-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-27.pdf', 'ATIX 27')">Ver Libro</button>
+                    <a href="/pdf/atix-27.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 28" data-category="Software Libre" data-tags="bolivia,duplicati,arduino,lxd,revista">
+            <img src="/img/covers/atix-28.webp" alt="Portada de ATIX 28" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 28</h3>
+                <div class="book-meta">
+                    <span>43 páginas</span>
+                    <span>2018</span>
+                    <span>CC-BY-SA-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-28.pdf', 'ATIX 28')">Ver Libro</button>
+                    <a href="/pdf/atix-28.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="ATIX 29" data-category="Software Libre" data-tags="bolivia,pseint,librepcb,arduino,neth server,revista">
+            <img src="/img/covers/atix-29.webp" alt="Portada de ATIX 29" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">ATIX 29</h3>
+                <div class="book-meta">
+                    <span>40 páginas</span>
+                    <span>2019</span>
+                    <span>CC-BY-SA-NC-ND</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/atix-29.pdf', 'ATIX 29')">Ver Libro</button>
+                    <a href="/pdf/atix-29.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Bash Notes for Professionals" data-category="GNU/Linux" data-tags="linux,terminal">
+            <img src="/img/covers/bash-notes-for-professionals.webp" alt="Portada de Bash Notes for Professionals" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">GNU/Linux</span>
+                <h3 class="book-title">Bash Notes for Professionals</h3>
+                <div class="book-meta">
+                    <span>204 páginas</span>
+                    <span>2016</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/bash-notes-for-professionals.pdf', 'Bash Notes for Professionals')">Ver Libro</button>
+                    <a href="/pdf/bash-notes-for-professionals.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="C Plus Plus Notes for Professionals" data-category="Programacion" data-tags="c++">
+            <img src="/img/covers/c-plus-plus-notes-for-professionals.webp" alt="Portada de C Plus Plus Notes for Professionals" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Programacion</span>
+                <h3 class="book-title">C Plus Plus Notes for Professionals</h3>
+                <div class="book-meta">
+                    <span>708 páginas</span>
+                    <span>2020</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/c-plus-plus-notes-for-professionals.pdf', 'C Plus Plus Notes for Professionals')">Ver Libro</button>
+                    <a href="/pdf/c-plus-plus-notes-for-professionals.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="C Sharp Notes for Professionals" data-category="Programacion" data-tags="c#">
+            <img src="/img/covers/csharp-notes-for-professionals.webp" alt="Portada de C Sharp Notes for Professionals" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Programacion</span>
+                <h3 class="book-title">C Sharp Notes for Professionals</h3>
+                <div class="book-meta">
+                    <span>808 páginas</span>
+                    <span>2017</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/csharp-notes-for-professionals.pdf', 'C Sharp Notes for Professionals')">Ver Libro</button>
+                    <a href="/pdf/csharp-notes-for-professionals.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="CSS  Notes for Professionals" data-category="Programacion" data-tags="desarrollo web,css">
+            <img src="/img/covers/css-notes-for-professionals.webp" alt="Portada de CSS  Notes for Professionals" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Programacion</span>
+                <h3 class="book-title">CSS  Notes for Professionals</h3>
+                <div class="book-meta">
+                    <span>244 páginas</span>
+                    <span>2015</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/css-notes-for-professionals.pdf', 'CSS  Notes for Professionals')">Ver Libro</button>
+                    <a href="/pdf/css-notes-for-professionals.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Dive Into HTML5" data-category="Programacion" data-tags="desarrollo web,html5">
+            <img src="/img/covers/dive-into-html5.webp" alt="Portada de Dive Into HTML5" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Programacion</span>
+                <h3 class="book-title">Dive Into HTML5</h3>
+                <div class="book-meta">
+                    <span>356 páginas</span>
+                    <span>2010</span>
+                    <span>CC-BY</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/dive-into-html5.pdf', 'Dive Into HTML5')">Ver Libro</button>
+                    <a href="/pdf/dive-into-html5.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Guía de Base" data-category="Ofimática" data-tags="libreoffice,ofimatica">
+            <img src="/img/covers/guia-de-base.webp" alt="Portada de Guía de Base" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Ofimática</span>
+                <h3 class="book-title">Guía de Base</h3>
+                <div class="book-meta">
+                    <span>510 páginas</span>
+                    <span>2021</span>
+                    <span>CC-BY</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/guia-de-base.pdf', 'Guía de Base')">Ver Libro</button>
+                    <a href="/pdf/guia-de-base.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Guía de Calc" data-category="Ofimática" data-tags="libreoffice,ofimatica">
+            <img src="/img/covers/guia-de-calc.webp" alt="Portada de Guía de Calc" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Ofimática</span>
+                <h3 class="book-title">Guía de Calc</h3>
+                <div class="book-meta">
+                    <span>654 páginas</span>
+                    <span>2021</span>
+                    <span>CC-BY</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/guia-de-calc.pdf', 'Guía de Calc')">Ver Libro</button>
+                    <a href="/pdf/guia-de-calc.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Guía de Draw" data-category="Ofimática" data-tags="libreoffice,ofimatica">
+            <img src="/img/covers/guia-de-draw.webp" alt="Portada de Guía de Draw" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Ofimática</span>
+                <h3 class="book-title">Guía de Draw</h3>
+                <div class="book-meta">
+                    <span>366 páginas</span>
+                    <span>2024</span>
+                    <span>CC-BY</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/guia-de-draw.pdf', 'Guía de Draw')">Ver Libro</button>
+                    <a href="/pdf/guia-de-draw.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Guía de Impress" data-category="Ofimática" data-tags="libreoffice,ofimatica">
+            <img src="/img/covers/guia-de-impress.webp" alt="Portada de Guía de Impress" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Ofimática</span>
+                <h3 class="book-title">Guía de Impress</h3>
+                <div class="book-meta">
+                    <span>357 páginas</span>
+                    <span>2023</span>
+                    <span>CC-BY</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/guia-de-impress.pdf', 'Guía de Impress')">Ver Libro</button>
+                    <a href="/pdf/guia-de-impress.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Guía de Math" data-category="Ofimática" data-tags="libreoffice,ofimatica">
+            <img src="/img/covers/guia-de-math.webp" alt="Portada de Guía de Math" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Ofimática</span>
+                <h3 class="book-title">Guía de Math</h3>
+                <div class="book-meta">
+                    <span>80 páginas</span>
+                    <span>2025</span>
+                    <span>CC-BY</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/guia-de-math.pdf', 'Guía de Math')">Ver Libro</button>
+                    <a href="/pdf/guia-de-math.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Guía de Referencia de Debian" data-category="GNU/Linux" data-tags="debian,linux,terminal,redes">
+            <img src="/img/covers/guia-de-referencia-de-debian.webp" alt="Portada de Guía de Referencia de Debian" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">GNU/Linux</span>
+                <h3 class="book-title">Guía de Referencia de Debian</h3>
+                <div class="book-meta">
+                    <span>300 páginas</span>
+                    <span>2024</span>
+                    <span>GPL</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/guia-de-referencia-de-debian.pdf', 'Guía de Referencia de Debian')">Ver Libro</button>
+                    <a href="/pdf/guia-de-referencia-de-debian.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Guía de Writer" data-category="Ofimática" data-tags="libreoffice,ofimatica">
+            <img src="/img/covers/guia-de-writer.webp" alt="Portada de Guía de Writer" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Ofimática</span>
+                <h3 class="book-title">Guía de Writer</h3>
+                <div class="book-meta">
+                    <span>524 páginas</span>
+                    <span>2026</span>
+                    <span>CC-BY</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/guia-de-writer.pdf', 'Guía de Writer')">Ver Libro</button>
+                    <a href="/pdf/guia-de-writer.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="HTML5 Notes for Professionals" data-category="Programacion" data-tags="desarrollo web,html5">
+            <img src="/img/covers/html5-notes-for-professionals.webp" alt="Portada de HTML5 Notes for Professionals" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Programacion</span>
+                <h3 class="book-title">HTML5 Notes for Professionals</h3>
+                <div class="book-meta">
+                    <span>124 páginas</span>
+                    <span>2016</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/html5-notes-for-professionals.pdf', 'HTML5 Notes for Professionals')">Ver Libro</button>
+                    <a href="/pdf/html5-notes-for-professionals.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Java Notes for Professionals" data-category="Programacion" data-tags="java,j2se">
+            <img src="/img/covers/java-notes-for-professionals.webp" alt="Portada de Java Notes for Professionals" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Programacion</span>
+                <h3 class="book-title">Java Notes for Professionals</h3>
+                <div class="book-meta">
+                    <span>982 páginas</span>
+                    <span>2018</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/java-notes-for-professionals.pdf', 'Java Notes for Professionals')">Ver Libro</button>
+                    <a href="/pdf/java-notes-for-professionals.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Manual de Seguridad de Debian" data-category="Seguridad Informática" data-tags="debian,linux,seguridad">
+            <img src="/img/covers/manual-de-seguridad-de-debian.webp" alt="Portada de Manual de Seguridad de Debian" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Seguridad Informática</span>
+                <h3 class="book-title">Manual de Seguridad de Debian</h3>
+                <div class="book-meta">
+                    <span>191 páginas</span>
+                    <span>2024</span>
+                    <span>GPL</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/manual-de-seguridad-de-debian.pdf', 'Manual de Seguridad de Debian')">Ver Libro</button>
+                    <a href="/pdf/manual-de-seguridad-de-debian.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="MongoDB Notes for Professionals" data-category="Programacion" data-tags="desarrollo web,bases de datos no relacionales">
+            <img src="/img/covers/mongodb-notes-for-professionals.webp" alt="Portada de MongoDB Notes for Professionals" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Programacion</span>
+                <h3 class="book-title">MongoDB Notes for Professionals</h3>
+                <div class="book-meta">
+                    <span>73 páginas</span>
+                    <span>2017</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/mongodb-notes-for-professionals.pdf', 'MongoDB Notes for Professionals')">Ver Libro</button>
+                    <a href="/pdf/mongodb-notes-for-professionals.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="MySQL Notes for Professionals" data-category="Programacion" data-tags="desarrollo web,bases de datos relacionales,sql">
+            <img src="/img/covers/mysql-notes-for-professionals.webp" alt="Portada de MySQL Notes for Professionals" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Programacion</span>
+                <h3 class="book-title">MySQL Notes for Professionals</h3>
+                <div class="book-meta">
+                    <span>199 páginas</span>
+                    <span>2015</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/mysql-notes-for-professionals.pdf', 'MySQL Notes for Professionals')">Ver Libro</button>
+                    <a href="/pdf/mysql-notes-for-professionals.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="OWASP MASVS" data-category="Seguridad Informática" data-tags="owasp,movil,vulnerabilidades">
+            <img src="/img/covers/owasp-masvs.webp" alt="Portada de OWASP MASVS" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Seguridad Informática</span>
+                <h3 class="book-title">OWASP MASVS</h3>
+                <div class="book-meta">
+                    <span>35 páginas</span>
+                    <span>2024</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/owasp-masvs.pdf', 'OWASP MASVS')">Ver Libro</button>
+                    <a href="/pdf/owasp-masvs.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="OWASP Top 10 2017" data-category="Seguridad Informática" data-tags="owasp,web,vulnerabilidades">
+            <img src="/img/covers/owasp-top-10-2017.webp" alt="Portada de OWASP Top 10 2017" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Seguridad Informática</span>
+                <h3 class="book-title">OWASP Top 10 2017</h3>
+                <div class="book-meta">
+                    <span>25 páginas</span>
+                    <span>2017</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/owasp-top-10-2017.pdf', 'OWASP Top 10 2017')">Ver Libro</button>
+                    <a href="/pdf/owasp-top-10-2017.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="OWASP Top 10 for LLM Applications 2026" data-category="Seguridad Informática" data-tags="owasp,llm,vulnerabilidades">
+            <img src="/img/covers/owasp-top-10-for-llm-applications-2026.webp" alt="Portada de OWASP Top 10 for LLM Applications 2026" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Seguridad Informática</span>
+                <h3 class="book-title">OWASP Top 10 for LLM Applications 2026</h3>
+                <div class="book-meta">
+                    <span>122 páginas</span>
+                    <span>2026</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/owasp-top-10-for-llm-applications-2026.pdf', 'OWASP Top 10 for LLM Applications 2026')">Ver Libro</button>
+                    <a href="/pdf/owasp-top-10-for-llm-applications-2026.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="PHP Notes for Professionals" data-category="Programacion" data-tags="desarrollo web,php">
+            <img src="/img/covers/php-notes-for-professionals.webp" alt="Portada de PHP Notes for Professionals" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Programacion</span>
+                <h3 class="book-title">PHP Notes for Professionals</h3>
+                <div class="book-meta">
+                    <span>481 páginas</span>
+                    <span>2019</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/php-notes-for-professionals.pdf', 'PHP Notes for Professionals')">Ver Libro</button>
+                    <a href="/pdf/php-notes-for-professionals.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Por una Cultura Libre" data-category="Software Libre" data-tags="cultura libre,lawrence lessing,filosofia">
+            <img src="/img/covers/por-una-cultura-libre.webp" alt="Portada de Por una Cultura Libre" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">Por una Cultura Libre</h3>
+                <div class="book-meta">
+                    <span>287 páginas</span>
+                    <span>2005</span>
+                    <span>CC-BY-NC</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/por-una-cultura-libre.pdf', 'Por una Cultura Libre')">Ver Libro</button>
+                    <a href="/pdf/por-una-cultura-libre.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="PostgreSQL Notes for Professionals" data-category="Programacion" data-tags="desarrollo web,bases de datos relacionales,sql">
+            <img src="/img/covers/postgresql-notes-for-professionals.webp" alt="Portada de PostgreSQL Notes for Professionals" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Programacion</span>
+                <h3 class="book-title">PostgreSQL Notes for Professionals</h3>
+                <div class="book-meta">
+                    <span>74 páginas</span>
+                    <span>2017</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/postgresql-notes-for-professionals.pdf', 'PostgreSQL Notes for Professionals')">Ver Libro</button>
+                    <a href="/pdf/postgresql-notes-for-professionals.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Python Notes for Professionals" data-category="Programacion" data-tags="python">
+            <img src="/img/covers/python-notes-for-professionals.webp" alt="Portada de Python Notes for Professionals" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Programacion</span>
+                <h3 class="book-title">Python Notes for Professionals</h3>
+                <div class="book-meta">
+                    <span>856 páginas</span>
+                    <span>2020</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/python-notes-for-professionals.pdf', 'Python Notes for Professionals')">Ver Libro</button>
+                    <a href="/pdf/python-notes-for-professionals.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Redes Inalambricas en los Paises en Desarrollo" data-category="Redes" data-tags="antenas,wifi">
+            <img src="/img/covers/redes-inalambricas-en-los-paises-en-desarrollo.webp" alt="Portada de Redes Inalambricas en los Paises en Desarrollo" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Redes</span>
+                <h3 class="book-title">Redes Inalambricas en los Paises en Desarrollo</h3>
+                <div class="book-meta">
+                    <span>530 páginas</span>
+                    <span>2013</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/redes-inalambricas-en-los-paises-en-desarrollo.pdf', 'Redes Inalambricas en los Paises en Desarrollo')">Ver Libro</button>
+                    <a href="/pdf/redes-inalambricas-en-los-paises-en-desarrollo.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Saber Libre 01" data-category="Software Libre" data-tags="soberania tecnologica,educacion,seguridad">
+            <img src="/img/covers/saber-libre-01.webp" alt="Portada de Saber Libre 01" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">Saber Libre 01</h3>
+                <div class="book-meta">
+                    <span>27 páginas</span>
+                    <span>2014</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/saber-libre-01.pdf', 'Saber Libre 01')">Ver Libro</button>
+                    <a href="/pdf/saber-libre-01.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Saber Libre 02" data-category="Software Libre" data-tags="seguridad,zimbra,yatiña iyambae">
+            <img src="/img/covers/saber-libre-02.webp" alt="Portada de Saber Libre 02" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">Saber Libre 02</h3>
+                <div class="book-meta">
+                    <span>28 páginas</span>
+                    <span>2014</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/saber-libre-02.pdf', 'Saber Libre 02')">Ver Libro</button>
+                    <a href="/pdf/saber-libre-02.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Saber Libre 03" data-category="Software Libre" data-tags="tic,educacion,miubuntu">
+            <img src="/img/covers/saber-libre-03.webp" alt="Portada de Saber Libre 03" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">Saber Libre 03</h3>
+                <div class="book-meta">
+                    <span>23 páginas</span>
+                    <span>2014</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/saber-libre-03.pdf', 'Saber Libre 03')">Ver Libro</button>
+                    <a href="/pdf/saber-libre-03.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Software Libre para una Sociedad Libre" data-category="Software Libre" data-tags="software libre,richard stallman,filosofia">
+            <img src="/img/covers/software-libre-para-una-sociedad-libre.webp" alt="Portada de Software Libre para una Sociedad Libre" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">Software Libre para una Sociedad Libre</h3>
+                <div class="book-meta">
+                    <span>318 páginas</span>
+                    <span>2004</span>
+                    <span>GPL</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/software-libre-para-una-sociedad-libre.pdf', 'Software Libre para una Sociedad Libre')">Ver Libro</button>
+                    <a href="/pdf/software-libre-para-una-sociedad-libre.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="Software Libre tecnicamente viable economicamente sostenible y socialmente justo" data-category="Software Libre" data-tags="software libre,empresas de software libre,modelo economicos del software libre">
+            <img src="/img/covers/software-libre-tecnicamente-viable-economicamente-sostenible-y-socialmente-justo.webp" alt="Portada de Software Libre tecnicamente viable economicamente sostenible y socialmente justo" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Software Libre</span>
+                <h3 class="book-title">Software Libre tecnicamente viable economicamente sostenible y socialmente justo</h3>
+                <div class="book-meta">
+                    <span>191 páginas</span>
+                    <span>2005</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/software-libre-tecnicamente-viable-economicamente-sostenible-y-socialmente-justo.pdf', 'Software Libre tecnicamente viable economicamente sostenible y socialmente justo')">Ver Libro</button>
+                    <a href="/pdf/software-libre-tecnicamente-viable-economicamente-sostenible-y-socialmente-justo.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+<article class="book-card" data-title="State of Agentic AI Security and Governance" data-category="Seguridad Informática" data-tags="owasp,agentes IA">
+            <img src="/img/covers/state-of-agentic-ai-security-and-governance.webp" alt="Portada de State of Agentic AI Security and Governance" class="book-cover" loading="lazy">
+            <div class="book-info">
+                <span class="book-category">Seguridad Informática</span>
+                <h3 class="book-title">State of Agentic AI Security and Governance</h3>
+                <div class="book-meta">
+                    <span>139 páginas</span>
+                    <span>2026</span>
+                    <span>CC-BY-SA</span>
+                </div>
+                <div class="book-actions">
+                    <button type="button" class="btn btn-primary" onclick="openPdfViewer('/pdf/state-of-agentic-ai-security-and-governance.pdf', 'State of Agentic AI Security and Governance')">Ver Libro</button>
+                    <a href="/pdf/state-of-agentic-ai-security-and-governance.pdf" class="btn btn-secondary" download>Descargar</a>
+                </div>
+            </div>
+        </article>
+        </section>
+
+        <nav class="pagination" id="pagination" aria-label="Paginación">
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Biblioteca</h3>
+                <p>Biblioteca digital del Núcleo Linux UAGRM. Libros gratuitos sobre informática, GNU/Linux, seguridad informática, programación y tecnología.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces</h3>
+                <a href="/">Inicio</a><br>
+                <a href="/about.html">Acerca de</a><br>
+                <a href="/contribuir.html">Contribuir</a><br>            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+
+                <a href="https://github.com/nlbol" target="_blank">GitHub</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Biblioteca - Núcleo Linux UAGRM.</p>
+        </div>
+    </footer>
+
+    <div class="pdf-viewer-overlay" id="pdf-viewer">
+        <div class="pdf-viewer-header">
+            <button class="pdf-viewer-close" onclick="closePdfViewer()" aria-label="Cerrar visor">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+            <span class="pdf-viewer-title" id="pdf-viewer-title"></span>
+            <div class="pdf-viewer-toolbar">
+                <button class="pdf-tool-btn" id="pdf-prev" onclick="pdfGoPrev()" aria-label="Página anterior" title="Anterior">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <span class="pdf-page-info" id="pdf-page-info">1 / 1</span>
+                <button class="pdf-tool-btn" id="pdf-next" onclick="pdfGoNext()" aria-label="Página siguiente" title="Siguiente">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <span class="pdf-toolbar-sep"></span>
+                <button class="pdf-tool-btn" onclick="pdfZoomOut()" aria-label="Reducir" title="Zoom -">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><line x1="5" y1="12" x2="19" y2="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+                <span class="pdf-zoom-label" id="pdf-zoom-label">100%</span>
+                <button class="pdf-tool-btn" onclick="pdfZoomIn()" aria-label="Ampliar" title="Zoom +">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><line x1="12" y1="5" x2="12" y2="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="5" y1="12" x2="19" y2="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                </button>
+                <span class="pdf-toolbar-sep"></span>
+                <button class="pdf-tool-btn" onclick="pdfFitWidth()" aria-label="Ajustar al ancho" title="Ajustar ancho">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><path d="M21 3H3v18h18V3zM9 3v18M15 3v18M3 9h18M3 15h18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+                <button class="pdf-tool-btn" onclick="pdfFitPage()" aria-label="Ajustar a página" title="Ajustar página">
+                    <svg viewBox="0 0 24 24" width="18" height="18"><rect x="4" y="2" width="16" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="8" y1="6" x2="16" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8" y1="14" x2="13" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="pdf-viewer-body" id="pdf-viewer-body">
+            <div class="pdf-viewer-loading" id="pdf-loading">
+                <div class="pdf-spinner"></div>
+                <span>Cargando PDF...</span>
+            </div>
+            <div class="pdf-viewer-scroll" id="pdf-scroll">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" data-cfasync="false"></script>
+    <script>
+        if (typeof pdfjsLib !== 'undefined') {
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" data-cfasync="false"></script>
+    <script>
+        window.CATALOG_CONFIG = {
+            booksPerPage: {
+                desktop: 8,
+                tablet: 6,
+                mobile: 4
+            }
+        };
+    </script>
+    <script src="/js/app.js?v=1788095445" data-cfasync="false"></script>
+</body>
+</html>
